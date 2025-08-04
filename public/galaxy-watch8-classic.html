@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galaxy Watch8 Classic | Samsung India</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .font-display {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .font-body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+    }
+
+    .font-heading {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+
+    .option-button {
+      transition: all 0.3s ease;
+    }
+
+    .option-button.selected {
+      border-color: #000;
+      background-color: #fff;
+    }
+
+    .option-button:not(.selected) {
+      border-color: #d1d5db;
+      background-color: #fff;
+    }
+
+         .option-button:hover:not(.selected) {
+       border-color: #9ca3af;
+     }
+
+     .color-option {
+       transition: all 0.3s ease;
+     }
+
+     .color-option.selected {
+       border-color: #000;
+       background-color: #fff;
+     }
+
+     .color-option:not(.selected) {
+       border-color: #d1d5db;
+       background-color: #fff;
+     }
+
+     .color-option:hover:not(.selected) {
+       border-color: #9ca3af;
+     }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-body">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <!-- Top Bar -->
+    <div class="flex justify-end px-6 py-2 text-sm text-gray-600">
+      <div class="flex gap-6">
+        <span class="cursor-pointer hover:text-black transition-colors">Support</span>
+        <span class="cursor-pointer hover:text-black transition-colors">For Business</span>
+      </div>
+    </div>
+
+    <!-- Main Nav -->
+    <div class="flex justify-between items-center px-6 py-4">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center">
+        <span class="text-2xl font-bold text-black">SAMSUNG</span>
+      </a>
+
+      <!-- Nav Links -->
+      <nav class="hidden md:flex gap-8 text-base font-semibold">
+        <a href="#" class="hover:text-blue-600 transition-colors text-gray-800">Shop</a>
+        <a href="#" class="hover:text-blue-600 transition-colors text-gray-800">Mobile</a>
+        <a href="#" class="hover:text-blue-600 transition-colors text-gray-800">TV & AV</a>
+        <a href="#" class="hover:text-blue-600 transition-colors text-gray-800">Appliances</a>
+        <a href="#" class="hover:text-blue-600 transition-colors text-gray-800">Computing & Displays</a>
+        <a href="#" class="hover:text-blue-600 transition-colors text-gray-800">Accessories</a>
+      </nav>
+
+      <!-- Icons -->
+      <div class="flex items-center gap-4">
+        <!-- Search Box -->
+        <div class="hidden md:flex items-center bg-gray-100 rounded-full px-4 py-2">
+          <svg class="w-4 h-4 text-gray-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <input type="text" placeholder="Search" class="bg-transparent outline-none text-sm w-full max-w-xs" />
+        </div>
+
+                 <!-- Cart Icon with Badge -->
+         <div class="relative cursor-pointer" onclick="toggleCart()">
+           <svg class="w-5 h-5 text-gray-700 hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8L6 7H3m4 6v6a2 2 0 002 2h8a2 2 0 002-2v-6m-10 0V9a2 2 0 012-2h6a2 2 0 012 2v4"/>
+           </svg>
+           <span id="cartBadge" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">0</span>
+         </div>
+
+        <!-- User Icon -->
+        <svg class="w-5 h-5 cursor-pointer text-gray-700 hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <div class="bg-gray-50 py-3 px-6">
+    <div class="max-w-7xl mx-auto">
+      <nav class="text-sm text-gray-600">
+        <span class="hover:text-black transition-colors cursor-pointer">Galaxy Watch</span>
+        <span class="mx-2">/</span>
+        <span class="text-black">Product details</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-6 py-8">
+    <div class="flex flex-col lg:flex-row gap-12">
+      
+             <!-- Left Section - Product Image -->
+       <div class="lg:w-1/2">
+         <div class="bg-gray-100 rounded-lg p-8 flex items-center justify-center">
+           <img id="watchImage" 
+                src="https://images.samsung.com/is/image/samsung/p6pim/in/f2507/gallery/in-galaxy-watch8-classic-l500-sm-l500nzkains-547659988?$684_547_PNG$" 
+                alt="Galaxy Watch8 Classic" 
+                class="w-full max-w-lg object-contain transition-all duration-300">
+         </div>
+       </div>
+
+      <!-- Right Section - Product Details -->
+      <div class="lg:w-1/2">
+        <!-- New Tag -->
+        <div class="inline-block bg-blue-600 text-white text-xs px-2 py-1 rounded mb-4">
+          New
+        </div>
+
+        <!-- Product Title -->
+        <h1 class="text-3xl font-bold text-black mb-2">
+          Galaxy Watch8 Classic (Bluetooth, 4.6 cm)
+        </h1>
+
+        <!-- Model Number -->
+        <div class="flex items-center mb-4">
+          <span class="text-gray-600">SM-L500NZKA</span>
+          <svg class="w-4 h-4 text-gray-400 ml-1 cursor-pointer" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+          </svg>
+        </div>
+
+        <!-- Rating -->
+        <div class="flex items-center mb-8">
+          <svg class="w-5 h-5 text-black mr-1" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          <span class="text-black font-medium">4.9 (95)</span>
+        </div>
+
+                 <!-- Choose connectivity -->
+         <div class="mb-8">
+           <h3 class="text-lg font-bold text-black mb-4">Choose connectivity</h3>
+           <div class="flex gap-4">
+             <button class="option-button border-2 px-6 py-3 rounded-lg font-medium" onclick="selectConnectivity('4g')">
+               4G
+             </button>
+             <button class="option-button border-2 px-6 py-3 rounded-lg font-medium selected" onclick="selectConnectivity('bluetooth')">
+               Bluetooth
+             </button>
+           </div>
+         </div>
+
+         <!-- Choose color -->
+         <div class="mb-8">
+           <h3 class="text-lg font-bold text-black mb-4">Choose color</h3>
+           <div class="flex gap-4">
+             <button class="color-option border-2 px-6 py-3 rounded-lg font-medium" onclick="selectColor('black')">
+               <div class="flex items-center gap-2">
+                 <div class="w-6 h-6 bg-black rounded-full"></div>
+                 <span>Black</span>
+               </div>
+             </button>
+             <button class="color-option border-2 px-6 py-3 rounded-lg font-medium" onclick="selectColor('white')">
+               <div class="flex items-center gap-2">
+                 <div class="w-6 h-6 bg-gray-300 rounded-full border border-gray-400"></div>
+                 <span>White</span>
+               </div>
+             </button>
+           </div>
+         </div>
+
+                 <!-- Choose product -->
+         <div class="mb-8">
+           <h3 class="text-lg font-bold text-black mb-4">Choose product</h3>
+           <div class="space-y-3">
+             <button class="option-button border-2 px-6 py-4 rounded-lg w-full text-left" onclick="selectProduct('watch8-40')">
+               <div class="font-medium">Watch8 (4.0 cm)</div>
+               <div class="text-sm text-gray-600">From ₹32999.00</div>
+             </button>
+             <button class="option-button border-2 px-6 py-4 rounded-lg w-full text-left selected" onclick="selectProduct('watch8-44')">
+               <div class="font-medium">Watch8 (4.4 cm)</div>
+               <div class="text-sm text-gray-600">From ₹35999.00</div>
+             </button>
+           </div>
+         </div>
+
+        <!-- Pricing -->
+        <div class="mb-8">
+          <div class="text-2xl font-bold text-black mb-2">
+            From ₹2278.82/mo for 24 mos or ₹46999.00
+          </div>
+          <div class="text-sm text-gray-600 mb-2">
+            MRP (Inclusive of all taxes) <span class="line-through">₹54999.00</span>
+            <span class="text-green-600 font-bold ml-2">Save ₹8000.00</span>
+          </div>
+        </div>
+
+                 <!-- Add to cart button -->
+         <button id="addToCartBtn" onclick="addToCart()" class="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors">
+           Add to cart
+         </button>
+         
+         <!-- Cart Status Message -->
+         <div id="cartStatus" class="text-sm text-center mt-2 hidden">
+           <span id="cartMessage" class="text-green-600 font-medium"></span>
+         </div>
+      </div>
+    </div>
+     </main>
+
+   <!-- Cart Dropdown -->
+   <div id="cartDropdown" class="absolute top-full right-0 w-96 bg-white border border-gray-200 rounded-lg shadow-lg z-50 hidden">
+     <div class="p-4">
+       <div class="flex justify-between items-center mb-4">
+         <h3 class="text-lg font-semibold text-gray-900">Shopping Cart</h3>
+         <button onclick="toggleCart()" class="text-gray-500 hover:text-gray-700">
+           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+           </svg>
+         </button>
+       </div>
+       
+       <div id="cartItems" class="space-y-3 max-h-64 overflow-y-auto">
+         <!-- Cart items will be dynamically added here -->
+       </div>
+       
+       <div class="border-t pt-4 mt-4">
+         <div class="flex justify-between text-sm mb-2">
+           <span>Subtotal:</span>
+           <span id="subtotal">₹0</span>
+         </div>
+         <div class="flex justify-between text-sm mb-2">
+           <span>Delivery:</span>
+           <span>₹599</span>
+         </div>
+         <div class="flex justify-between font-semibold text-lg">
+           <span>Total:</span>
+           <span id="total">₹599</span>
+         </div>
+       </div>
+       
+       <button id="checkoutBtn" class="w-full bg-blue-600 text-white py-2 rounded-lg mt-4 hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
+         Checkout
+       </button>
+     </div>
+   </div>
+
+       <!-- Footer -->
+   <footer class="bg-white border-t border-gray-200 mt-16">
+     <div class="max-w-7xl mx-auto px-6 py-12">
+       <!-- Main Footer Content -->
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
+         
+         <!-- Product & Service -->
+         <div>
+           <h3 class="font-bold text-black mb-4">Product & Service</h3>
+           <ul class="space-y-2 text-sm text-gray-600">
+             <li><a href="#" class="hover:text-black transition-colors">Smartphones</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Tablets</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Audio Sound</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Watches</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Smart Switch</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Mobile Accessories</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">TVs</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Sound Devices</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Refrigerators</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Laundry</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Air Solutions</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Cooking Appliances</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Monitors</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Memory Storage</a></li>
+           </ul>
+         </div>
+
+         <!-- Shop -->
+         <div>
+           <h3 class="font-bold text-black mb-4">Shop</h3>
+           <ul class="space-y-2 text-sm text-gray-600">
+             <li><a href="#" class="hover:text-black transition-colors">FAQs</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Contact Us</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Welcome Voucher</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Samsung Referral Advantage</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Samsung Student Advantage</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Defence Purchase Program</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Corporate Employee Program</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Corporate Bulk Purchase</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Samsung Experience Store</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Store Locator</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Smart Club</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Terms of Use</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Order Grievance Redressal</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Explore</a></li>
+           </ul>
+         </div>
+
+         <!-- Support -->
+         <div>
+           <h3 class="font-bold text-black mb-4">Support</h3>
+           <ul class="space-y-2 text-sm text-gray-600">
+             <li><a href="#" class="hover:text-black transition-colors flex items-center">WhatsApp Us <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></li>
+             <li><a href="#" class="hover:text-black transition-colors flex items-center">Sign Language <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></li>
+             <li><a href="#" class="hover:text-black transition-colors flex items-center">Email Us <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Call Us</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Email the CEO</a></li>
+             <li><a href="#" class="hover:text-black transition-colors flex items-center">Community <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Product Registration</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Track Repair</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Service Centre</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Share Your Opinion</a></li>
+             <li><a href="#" class="hover:text-black transition-colors flex items-center">Chat with us <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></li>
+           </ul>
+         </div>
+
+         <!-- Account & Community -->
+         <div>
+           <h3 class="font-bold text-black mb-4">Account & Community</h3>
+           <ul class="space-y-2 text-sm text-gray-600">
+             <li><a href="#" class="hover:text-black transition-colors">My Page</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">My Products</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Orders</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Wishlist</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Vouchers</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">My Referrals</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Service</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Community</a></li>
+           </ul>
+         </div>
+
+         <!-- Sustainability -->
+         <div>
+           <h3 class="font-bold text-black mb-4">Sustainability</h3>
+           <ul class="space-y-2 text-sm text-gray-600">
+             <li><a href="#" class="hover:text-black transition-colors">Environment</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Security & Privacy</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Accessibility</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Diversity · Equity · Inclusion</a></li>
+             <li><a href="#" class="hover:text-black transition-colors flex items-center">Corporate Citizenship <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></li>
+             <li><a href="#" class="hover:text-black transition-colors flex items-center">Corporate Sustainability <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></li>
+           </ul>
+         </div>
+
+         <!-- About Us -->
+         <div>
+           <h3 class="font-bold text-black mb-4">About Us</h3>
+           <ul class="space-y-2 text-sm text-gray-600">
+             <li><a href="#" class="hover:text-black transition-colors">Company Info</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Business Area</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Brand Identity</a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Careers</a></li>
+             <li><a href="#" class="hover:text-black transition-colors flex items-center">Investor Relations <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></li>
+             <li><a href="#" class="hover:text-black transition-colors flex items-center">Newsroom <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></li>
+             <li><a href="#" class="hover:text-black transition-colors">Ethics</a></li>
+             <li><a href="#" class="hover:text-black transition-colors flex items-center">Samsung Design <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></li>
+           </ul>
+         </div>
+       </div>
+
+       <!-- Copyright and Legal Section -->
+       <div class="border-t border-gray-200 pt-8 mb-8">
+         <div class="text-sm text-gray-600 space-y-2">
+           <p>Copyright © 1995-2025 SAMSUNG All Rights reserved.</p>
+           <p>Please dispose of e-waste and plastic waste responsibly.</p>
+           <p>For more information or e-waste pick up, please call 1800 5 7267864 or <a href="#" class="text-blue-600 hover:underline">click here</a> for more details.</p>
+           <p>Registered Office Address: 6th Floor, DLF Centre, Sansad Marg, New Delhi-110001</p>
+           <p>Corporate Identification Number (CIN): U31900DL1995PTC071387</p>
+         </div>
+       </div>
+
+       <!-- Bottom Footer -->
+       <div class="border-t border-gray-200 pt-6">
+         <div class="flex flex-col md:flex-row justify-between items-center">
+           <!-- Left side links -->
+           <div class="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-4 md:mb-0">
+             <span>India/English</span>
+             <span class="text-gray-300">|</span>
+             <a href="#" class="hover:text-black transition-colors">Privacy</a>
+             <span class="text-gray-300">|</span>
+             <a href="#" class="hover:text-black transition-colors">Legal</a>
+             <span class="text-gray-300">|</span>
+             <a href="#" class="hover:text-black transition-colors">CSR Policy</a>
+             <span class="text-gray-300">|</span>
+             <a href="#" class="hover:text-black transition-colors">Sitemap</a>
+           </div>
+
+           <!-- Right side social media -->
+           <div class="flex items-center gap-4">
+             <span class="text-sm text-gray-600">Stay in the Loop?</span>
+             <div class="flex gap-3">
+               <!-- Facebook -->
+               <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">
+                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                 </svg>
+               </a>
+               <!-- X (Twitter) -->
+               <a href="#" class="text-gray-600 hover:text-black transition-colors">
+                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                 </svg>
+               </a>
+               <!-- Instagram -->
+               <a href="#" class="text-gray-600 hover:text-pink-600 transition-colors">
+                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                   <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.418-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.928.875 1.418 2.026 1.418 3.323s-.49 2.448-1.418 3.244c-.875.807-2.026 1.297-3.323 1.297zm7.83-9.781c-.49 0-.928-.175-1.297-.49-.368-.315-.49-.753-.49-1.243 0-.49.122-.928.49-1.243.369-.315.807-.49 1.297-.49s.928.175 1.297.49c.368.315.49.753.49 1.243 0 .49-.122.928-.49 1.243-.369.315-.807.49-1.297.49z"/>
+                 </svg>
+               </a>
+               <!-- YouTube -->
+               <a href="#" class="text-gray-600 hover:text-red-600 transition-colors">
+                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                 </svg>
+               </a>
+               <!-- LinkedIn -->
+               <a href="#" class="text-gray-600 hover:text-blue-700 transition-colors">
+                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                 </svg>
+               </a>
+               <!-- WhatsApp -->
+               <a href="#" class="text-gray-600 hover:text-green-600 transition-colors">
+                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                 </svg>
+               </a>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </footer>
+
+  <script>
+    // Connectivity selection
+    function selectConnectivity(type) {
+      const buttons = document.querySelectorAll('[onclick*="selectConnectivity"]');
+      buttons.forEach(btn => {
+        btn.classList.remove('selected');
+      });
+      event.target.classList.add('selected');
+    }
+
+                   // Product selection
+      function selectProduct(type) {
+        const buttons = document.querySelectorAll('[onclick*="selectProduct"]');
+        buttons.forEach(btn => {
+          btn.classList.remove('selected');
+        });
+        event.target.closest('.option-button').classList.add('selected');
+      }
+
+           // Color selection
+      function selectColor(color) {
+        const watchImage = document.getElementById('watchImage');
+        const colorButtons = document.querySelectorAll('.color-option');
+        
+        // Remove selected class from all color buttons
+        colorButtons.forEach(btn => {
+          btn.classList.remove('selected');
+        });
+        
+        // Add selected class to clicked button
+        event.target.closest('.color-option').classList.add('selected');
+        
+        // Update image based on selected color
+        if (color === 'black') {
+          watchImage.src = 'https://images.samsung.com/is/image/samsung/p6pim/in/f2507/gallery/in-galaxy-watch8-classic-l500-sm-l500nzkains-547659988?$684_547_PNG$';
+        } else if (color === 'white') {
+          watchImage.src = 'https://images.samsung.com/is/image/samsung/p6pim/in/f2507/gallery/in-galaxy-watch8-classic-l500-sm-l500nzwains-547660001?$684_547_PNG$';
+        }
+      }
+
+      // Cart functionality
+      let cart = [];
+      let selectedColor = 'black'; // Default selection
+      const MAX_CART_ITEMS = 5;
+      const DELIVERY_CHARGE = 599;
+      
+      // Product details
+      const productDetails = {
+        name: 'Galaxy Watch8 Classic',
+        prices: {
+          'watch8-40': 32999,
+          'watch8-44': 46999
+        },
+        images: {
+          'black': 'https://images.samsung.com/is/image/samsung/p6pim/in/f2507/gallery/in-galaxy-watch8-classic-l500-sm-l500nzkains-547659988?$684_547_PNG$',
+          'white': 'https://images.samsung.com/is/image/samsung/p6pim/in/f2507/gallery/in-galaxy-watch8-classic-l500-sm-l500nzwains-547660001?$684_547_PNG$'
+        }
+      };
+
+      // Toggle cart dropdown
+      function toggleCart() {
+        const cartDropdown = document.getElementById('cartDropdown');
+        cartDropdown.classList.toggle('hidden');
+      }
+
+      // Update cart badge
+      function updateCartBadge() {
+        const cartBadge = document.getElementById('cartBadge');
+        cartBadge.textContent = cart.length;
+        
+        if (cart.length > 0) {
+          cartBadge.classList.remove('hidden');
+        } else {
+          cartBadge.classList.add('hidden');
+        }
+      }
+
+      // Update cart display
+      function updateCartDisplay() {
+        const cartItems = document.getElementById('cartItems');
+        const subtotalElement = document.getElementById('subtotal');
+        const totalElement = document.getElementById('total');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        
+        // Clear cart items
+        cartItems.innerHTML = '';
+        
+        if (cart.length === 0) {
+          cartItems.innerHTML = '<p class="text-gray-500 text-center py-4">Your cart is empty</p>';
+          subtotalElement.textContent = '₹0';
+          totalElement.textContent = `₹${DELIVERY_CHARGE}`;
+          checkoutBtn.disabled = true;
+          return;
+        }
+        
+        // Add cart items
+        cart.forEach((item, index) => {
+          const cartItem = document.createElement('div');
+          cartItem.className = 'flex items-center justify-between p-3 bg-gray-50 rounded-lg';
+          cartItem.innerHTML = `
+            <div class="flex items-center space-x-3">
+              <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-contain rounded">
+              <div>
+                <p class="font-medium text-sm">${item.name}</p>
+                <p class="text-xs text-gray-600">${item.size} | ${item.color}</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="font-semibold text-sm">₹${item.price.toLocaleString()}</span>
+              <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                </svg>
+              </button>
+            </div>
+          `;
+          cartItems.appendChild(cartItem);
+        });
+        
+        // Calculate totals
+        const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
+        const total = subtotal + DELIVERY_CHARGE;
+        
+        subtotalElement.textContent = `₹${subtotal.toLocaleString()}`;
+        totalElement.textContent = `₹${total.toLocaleString()}`;
+        checkoutBtn.disabled = false;
+      }
+
+      // Get selected color
+      function getSelectedColor() {
+        const colorButtons = document.querySelectorAll('.color-option');
+        for (const button of colorButtons) {
+          if (button.classList.contains('selected')) {
+            const colorText = button.querySelector('span').textContent.toLowerCase();
+            return colorText;
+          }
+        }
+        return 'black'; // Default
+      }
+
+      // Get selected product
+      function getSelectedProduct() {
+        const productButtons = document.querySelectorAll('[onclick*="selectProduct"]');
+        for (const button of productButtons) {
+          if (button.classList.contains('selected')) {
+            const onclick = button.getAttribute('onclick');
+            if (onclick.includes('watch8-40')) return 'watch8-40';
+            if (onclick.includes('watch8-44')) return 'watch8-44';
+          }
+        }
+        return 'watch8-44'; // Default
+      }
+
+      // Add to cart
+      function addToCart() {
+        if (cart.length >= MAX_CART_ITEMS) {
+          showCartMessage('Maximum 5 items allowed in cart!', 'error');
+          return;
+        }
+        
+        const selectedColor = getSelectedColor();
+        const selectedProduct = getSelectedProduct();
+        
+        const cartItem = {
+          name: productDetails.name,
+          size: selectedProduct === 'watch8-40' ? '4.0 cm' : '4.4 cm',
+          color: selectedColor,
+          price: productDetails.prices[selectedProduct],
+          image: productDetails.images[selectedColor]
+        };
+        
+        cart.push(cartItem);
+        updateCartBadge();
+        updateCartDisplay();
+        showCartMessage('Added to cart successfully!', 'success');
+        
+        // Enable/disable add to cart button based on cart limit
+        const addToCartBtn = document.getElementById('addToCartBtn');
+        if (cart.length >= MAX_CART_ITEMS) {
+          addToCartBtn.disabled = true;
+          addToCartBtn.textContent = 'Cart Full (Max 5 Items)';
+        }
+      }
+
+      // Remove from cart
+      function removeFromCart(index) {
+        cart.splice(index, 1);
+        updateCartBadge();
+        updateCartDisplay();
+        
+        // Re-enable add to cart button if under limit
+        const addToCartBtn = document.getElementById('addToCartBtn');
+        if (cart.length < MAX_CART_ITEMS) {
+          addToCartBtn.disabled = false;
+          addToCartBtn.textContent = 'Add to cart';
+        }
+      }
+
+      // Show cart message
+      function showCartMessage(message, type) {
+        const cartStatus = document.getElementById('cartStatus');
+        const cartMessage = document.getElementById('cartMessage');
+        
+        cartMessage.textContent = message;
+        cartMessage.className = type === 'error' ? 'text-red-600 font-medium' : 'text-green-600 font-medium';
+        cartStatus.classList.remove('hidden');
+        
+        setTimeout(() => {
+          cartStatus.classList.add('hidden');
+        }, 3000);
+      }
+
+      // Initialize cart system
+      document.addEventListener('DOMContentLoaded', function() {
+        updateCartBadge();
+        updateCartDisplay();
+        
+        // Close cart when clicking outside
+        document.addEventListener('click', function(event) {
+          const cartDropdown = document.getElementById('cartDropdown');
+          const cartIcon = event.target.closest('[onclick="toggleCart()"]');
+          
+          if (!cartDropdown.contains(event.target) && !cartIcon) {
+            cartDropdown.classList.add('hidden');
+          }
+        });
+      });
+  </script>
+
+</body>
+</html> 

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samsung Account - Login</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    } 
+    
+    body { 
+      font-family: 'Inter', sans-serif;
+      background-image: url('https://wallpapercave.com/wp/wp12607217.jpg'); 
+      background-size: cover;
+      background-position: center;
+      height: 100vh; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+    } 
+    
+    .login-container { 
+      background-image: url('https://www.shutterstock.com/image-photo/black-white-abstract-background-geometric-600nw-2351513777.jpg'); 
+      background-size: cover;
+      padding: 30px; 
+      border-radius: 10px; 
+      width: 320px; 
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); 
+    } 
+    
+    .login-box h2 { 
+      text-align: center; 
+      color: #fff; 
+      margin-bottom: 25px; 
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+    } 
+    
+    .input-group { 
+      display: flex; 
+      align-items: center; 
+      background: #1f1f1f; 
+      margin-bottom: 20px; 
+      padding: 10px; 
+      border-radius: 5px; 
+    } 
+    
+    .input-group i { 
+      color: #aaa; 
+      margin-right: 10px; 
+    } 
+    
+    .input-group input { 
+      background: none; 
+      border: none; 
+      outline: none; 
+      color: #fff; 
+      width: 100%; 
+      font-size: 16px; 
+    } 
+    
+    .options { 
+      display: flex; 
+      justify-content: space-between; 
+      font-size: 14px; 
+      color: #ccc; 
+      margin-bottom: 20px; 
+    } 
+    
+    .options a { 
+      color: #aaa; 
+      text-decoration: none; 
+    } 
+    
+    .login-btn { 
+      width: 100%; 
+      padding: 12px; 
+      border: none; 
+      background: #1d4ed8; 
+      color: #fff; 
+      font-weight: bold; 
+      border-radius: 5px; 
+      cursor: pointer; 
+      transition: 0.3s; 
+    } 
+    
+    .login-btn:hover { 
+      background: #1e40af; 
+    }
+
+    .register-link {
+      text-align: center;
+      margin-top: 20px;
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    .register-link a {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .register-link a:hover {
+      text-decoration: underline;
+    }
+
+    .error-message {
+      color: #ef4444;
+      font-size: 14px;
+      margin-bottom: 15px;
+      text-align: center;
+      display: none;
+    }
+
+    .samsung-logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .samsung-logo img {
+      height: 50px; /* Increased from 40px to 50px */
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <form class="login-box" id="loginForm">
+      <div class="samsung-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/2560px-Samsung_Logo.svg.png" alt="Samsung Logo">
+      </div>
+      <h2>Login</h2>
+
+      <div class="error-message" id="errorMessage"></div>
+
+      <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text" id="username" placeholder="Username" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" id="password" placeholder="Password" required>
+      </div>
+
+      <div class="options">
+        <label><input type="checkbox" id="rememberMe"> Remember me</label>
+        <a href="#">Forgot Password?</a>
+      </div>
+
+      <button type="submit" class="login-btn">LOGIN</button>
+
+      <div class="register-link">
+        Don't have an account? <a href="register.html">Register</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const errorMessage = document.getElementById('errorMessage');
+      
+      // Reset error message
+      errorMessage.style.display = 'none';
+      
+      // Check if user exists in localStorage
+      const storedUserData = localStorage.getItem('samsungUser');
+      
+      if (!storedUserData) {
+        errorMessage.textContent = 'No account found. Please register first.';
+        errorMessage.style.display = 'block';
+        return;
+      }
+      
+      const userData = JSON.parse(storedUserData);
+      
+      // Validate credentials
+      if (username === userData.username && password === userData.password) {
+        // Successful login - redirect to main page
+        window.location.href = 'index.html';
+      } else {
+        // Failed login
+        errorMessage.textContent = 'Wrong username or password. Please try again.';
+        errorMessage.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

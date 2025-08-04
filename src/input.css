@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* 🔽 Custom button styles */
+.btn-outline-white {
+    @apply px-6 py-3 rounded-full border border-white text-white transition duration-200;
+  }
+  
+  .btn-outline-white:hover {
+    @apply bg-white text-black;
+  }

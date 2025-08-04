@@ -1,0 +1,295 @@
+/* Main stylesheet for Samsung Homepage Clone */
+
+/* Base styles */
+body {
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Custom animations */
+.washing-machine-section,
+.galaxy-fold-section,
+.galaxy-watch-content,
+.galaxy-watch-text-container,
+.galaxy-watch-title,
+.galaxy-watch-subtitle,
+.galaxy-watch-button {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(0); /* Removed blur completely */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Galaxy Watch8 Section Animations */
+.galaxy-watch-section {
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  transition: all 2.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: blur(0); /* Removed blur completely */
+}
+
+.galaxy-watch-section.animate-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0px);
+}
+
+/* Letter animation for Galaxy Watch8 and Galaxy AI */
+.letter-animation {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px) scale(0.8);
+  filter: blur(0); /* Removed blur completely */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.letter-animation.animate {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+  text-shadow: 0 0 1px rgba(255,255,255,0.5); /* Added subtle text shadow for clarity */
+}
+
+/* Banner animation enhancement */
+.galaxy-watch-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.galaxy-watch-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 1s ease;
+  z-index: 1;
+}
+
+.galaxy-watch-content.animate-in::before {
+  left: 100%;
+  transition: left 1.5s ease;
+}
+
+/* Enhanced button animation */
+.galaxy-watch-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.galaxy-watch-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s ease;
+  z-index: 1;
+}
+
+.galaxy-watch-button.animate-in {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+}
+
+.galaxy-watch-button.animate-in::before {
+  animation: button-shine 2s infinite;
+}
+
+@keyframes button-shine {
+  0% {
+    left: -100%;
+  }
+  20% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Washing machine zoom effect */
+.washing-machine-section {
+  overflow: hidden;
+}
+
+.washing-machine-section img {
+  transition: transform 8s ease-out;
+}
+
+.washing-machine-section.zoom-effect img {
+  transform: scale(1.05);
+}
+
+/* Product item animations */
+.galaxy-fold-section .text-center {
+  opacity: 0;
+  transform: translateY(40px);
+  filter: blur(1px);
+  transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
+}
+
+.animate-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  filter: blur(0) !important;
+  visibility: visible !important;
+}
+
+/* Transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Custom utility classes */
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #1a73e8, #8ab4f8);
+}
+
+/* Shop Dropdown Menu Styles */
+.shop-button {
+  position: relative;
+}
+
+.shop-dropdown {
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.15), 0 4px 10px -5px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid #e5e7eb;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  transform-origin: top center;
+  z-index: 100;
+  border-radius: 0 0 12px 12px;
+}
+
+.shop-dropdown::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #1d4ed8, #3b82f6);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.group:hover .shop-dropdown::after {
+  transform: scaleX(1);
+}
+
+.shop-dropdown .grid {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition-delay: 0.1s;
+}
+
+.group:hover .shop-dropdown .grid {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Product item hover effects */
+.shop-dropdown a {
+  transition: all 0.3s ease;
+  display: block;
+  text-decoration: none;
+  color: #333;
+}
+
+.shop-dropdown .text-center a:hover {
+  transform: translateY(-2px);
+}
+
+.shop-dropdown a:hover p {
+  color: #1d4ed8;
+}
+
+.shop-dropdown a {
+  position: relative;
+  padding: 6px 0;
+  overflow: visible;
+}
+
+.shop-dropdown img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 8px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.shop-dropdown a:hover img {
+  transform: scale(1.08) translateY(-5px);
+  filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.1));
+}
+
+.shop-dropdown .text-center {
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.shop-dropdown .text-center:hover {
+  background-color: rgba(237, 242, 247, 0.7);
+  border-color: rgba(203, 213, 225, 0.5);
+}
+
+.shop-dropdown a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #1a73e8;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  display: none;
+}
+
+.shop-dropdown .grid a::after {
+  display: none;
+}
+
+.shop-dropdown div > ul a::after {
+  display: block;
+  bottom: -2px;
+  height: 1px;
+  width: calc(100% - 16px);
+  left: 8px;
+}
+
+.shop-dropdown a:hover::after {
+  transform: translateX(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .countdown-container {
+    gap: 5px;
+  }
+  
+  .countdown-number {
+    font-size: 1.2rem;
+  }
+  
+  .countdown-label {
+    font-size: 0.6rem;
+  }
+  
+  .shop-dropdown {
+    width: 100%;
+    left: 0;
+  }
+}

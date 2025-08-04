@@ -1,0 +1,474 @@
+// Washing Machine Section Animation Controller
+document.addEventListener('DOMContentLoaded', function() {
+    // Search Functionality
+    const searchInput = document.getElementById('searchInput');
+    const searchDropdown = document.getElementById('searchDropdown');
+    const searchItems = document.querySelectorAll('.search-item');
+    
+    if (searchInput && searchDropdown) {
+        // Show dropdown when input is focused
+        searchInput.addEventListener('focus', function() {
+            searchDropdown.classList.remove('invisible', 'opacity-0', 'transform', '-translate-y-2');
+            searchDropdown.classList.add('opacity-100', 'translate-y-0', 'visible');
+        });
+        
+        // Show dropdown on input click
+        searchInput.addEventListener('click', function() {
+            searchDropdown.classList.remove('invisible', 'opacity-0', 'transform', '-translate-y-2');
+            searchDropdown.classList.add('opacity-100', 'translate-y-0', 'visible');
+        });
+        
+        // Hide dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!searchInput.contains(event.target) && !searchDropdown.contains(event.target)) {
+                searchDropdown.classList.add('invisible', 'opacity-0', 'transform', '-translate-y-2');
+                searchDropdown.classList.remove('opacity-100', 'translate-y-0', 'visible');
+            }
+        });
+        
+        // Filter search results as user types
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase().trim();
+            
+            if (searchTerm === '') {
+                // Show all items when search is empty
+                searchItems.forEach(item => {
+                    item.style.display = 'block';
+                });
+                return;
+            }
+            
+            searchItems.forEach(item => {
+                const itemName = item.getAttribute('data-name');
+                if (itemName && itemName.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    }
+    
+    const washingMachineSection = document.querySelector('.washing-machine-section');
+    const galaxyWatchSection = document.querySelector('.galaxy-watch-section');
+    const galaxyFoldSection = document.querySelector('.galaxy-fold-section');
+    const galaxyWatchContent = document.querySelector('.galaxy-watch-content');
+    const galaxyWatchTextContainer = document.querySelector('.galaxy-watch-text-container');
+    const galaxyWatchTitle = document.querySelector('.galaxy-watch-title');
+    const galaxyWatchSubtitle = document.querySelector('.galaxy-watch-subtitle');
+    const galaxyWatchButton = document.querySelector('.galaxy-watch-button');
+    // Video pause functionality
+    const video = document.getElementById('heroVideo');
+    const pauseButton = document.getElementById('pauseButton');
+    let isPaused = false;
+
+    if (pauseButton && video) {
+        pauseButton.addEventListener('click', function() {
+            if (isPaused) {
+                video.play();
+                pauseButton.innerHTML = `
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                    </svg>
+                `;
+                isPaused = false;
+            } else {
+                video.pause();
+                pauseButton.innerHTML = `
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                `;
+                isPaused = true;
+            }
+        });
+    }
+
+    // Function to trigger washing machine animations
+    function triggerWashingMachineAnimation() {
+        // First fade in the section
+        washingMachineSection.classList.add('animate-in');
+        
+        // Add a subtle zoom effect after the section appears
+        setTimeout(() => {
+            washingMachineSection.classList.add('zoom-effect');
+        }, 500);
+    }
+
+    // Function to reset washing machine animations
+    function resetWashingMachineAnimation() {
+        washingMachineSection.classList.remove('animate-in');
+        washingMachineSection.classList.remove('zoom-effect');
+    }
+
+    // Function to trigger galaxy watch animations
+function triggerGalaxyWatchAnimation() {
+    // First fade in the section
+    galaxyWatchSection.classList.add('animate-in');
+    
+    // Then animate each element with increasing delays for a cascade effect
+    setTimeout(() => galaxyWatchContent.classList.add('animate-in'), 400);
+    setTimeout(() => galaxyWatchTextContainer.classList.add('animate-in'), 700);
+    
+    // Animate the title text letter by letter
+    setTimeout(() => {
+        // Get the title text
+        const titleText = galaxyWatchTitle.textContent;
+        // Clear the title
+        galaxyWatchTitle.textContent = '';
+        
+        // Create a span for each letter with animation class
+        for (let i = 0; i < titleText.length; i++) {
+            const letterSpan = document.createElement('span');
+            letterSpan.className = 'letter-animation';
+            letterSpan.textContent = titleText[i];
+            galaxyWatchTitle.appendChild(letterSpan);
+            
+            // Animate each letter with staggered delay - faster animation
+            setTimeout(() => {
+                letterSpan.classList.add('animate');
+            }, 70 * i); // Reduced from 100ms to 70ms for faster animation
+        }
+    }, 1000);
+    
+    // Animate the subtitle text letter by letter
+    setTimeout(() => {
+        // Get the subtitle text (Galaxy AI)
+        const subtitleText = 'Galaxy AI';
+        // Find the h3 element inside the subtitle container
+        const subtitleElement = galaxyWatchSubtitle.querySelector('h3');
+        if (subtitleElement) {
+            // Clear the subtitle
+            subtitleElement.textContent = '';
+            
+            // Create a span for each letter with animation class
+            for (let i = 0; i < subtitleText.length; i++) {
+                const letterSpan = document.createElement('span');
+                letterSpan.className = 'letter-animation';
+                letterSpan.textContent = subtitleText[i];
+                subtitleElement.appendChild(letterSpan);
+                
+                // Animate each letter with staggered delay - faster animation
+                setTimeout(() => {
+                    letterSpan.classList.add('animate');
+                }, 70 * i); // Reduced from 100ms to 70ms for faster animation
+            }
+        }
+    }, 1300);
+    
+    // Animate the button with special text effect
+    setTimeout(() => {
+        // Get the button text
+        const buttonText = galaxyWatchButton.textContent.trim();
+        // Clear the button
+        galaxyWatchButton.textContent = '';
+        
+        // Create a container for the text
+        const textContainer = document.createElement('span');
+        textContainer.style.position = 'relative';
+        textContainer.style.zIndex = '2';
+        galaxyWatchButton.appendChild(textContainer);
+        
+        // Create a span for each letter with animation class
+        for (let i = 0; i < buttonText.length; i++) {
+            const letterSpan = document.createElement('span');
+            letterSpan.className = 'letter-animation';
+            letterSpan.textContent = buttonText[i];
+            letterSpan.style.transitionDelay = `${0.05 * i}s`;
+            textContainer.appendChild(letterSpan);
+            
+            // Animate each letter with staggered delay - faster animation
+            setTimeout(() => {
+                letterSpan.classList.add('animate');
+            }, 40 * i); // Reduced from 50ms to 40ms for faster animation
+        }
+        
+        // Add the animate-in class to the button for the shine effect
+        galaxyWatchButton.classList.add('animate-in');
+    }, 1800);
+}
+
+    // Function to reset galaxy watch animations
+function resetGalaxyWatchAnimation() {
+    galaxyWatchSection.classList.remove('animate-in');
+    galaxyWatchContent.classList.remove('animate-in');
+    galaxyWatchTextContainer.classList.remove('animate-in');
+    galaxyWatchButton.classList.remove('animate-in');
+    
+    // Reset the title to original text
+    const titleLetters = galaxyWatchTitle.querySelectorAll('.letter-animation');
+    if (titleLetters.length > 0) {
+        // Remove all letter spans and restore original text
+        galaxyWatchTitle.textContent = 'Galaxy Watch8';
+    } else {
+        // If no letter spans yet, just remove the animate-in class
+        galaxyWatchTitle.classList.remove('animate-in');
+    }
+    
+    // Reset the subtitle to original text
+    const subtitleElement = galaxyWatchSubtitle.querySelector('h3');
+    if (subtitleElement) {
+        const subtitleLetters = subtitleElement.querySelectorAll('.letter-animation');
+        if (subtitleLetters.length > 0) {
+            // Remove all letter spans and restore original text
+            subtitleElement.textContent = 'Galaxy AI';
+        } else {
+            // If no letter spans yet, just remove the animate-in class
+            galaxyWatchSubtitle.classList.remove('animate-in');
+        }
+    }
+    
+    // Reset the button to original text
+    const buttonLetters = galaxyWatchButton.querySelectorAll('.letter-animation');
+    if (buttonLetters.length > 0) {
+        // Remove all letter spans and restore original text
+        galaxyWatchButton.textContent = 'Experience live demo';
+    }
+}
+
+    // Function to trigger galaxy fold animations with staggered product animations
+    function triggerGalaxyFoldAnimation() {
+        galaxyFoldSection.classList.add('animate-in');
+        
+        // Get all product items in the fold section
+        const productItems = galaxyFoldSection.querySelectorAll('.text-center');
+        
+        // Animate each product with a delay
+        productItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.classList.add('animate-in');
+            }, 300 * index); // 300ms delay between each product
+        });
+    }
+
+    // Function to reset galaxy fold animations
+    function resetGalaxyFoldAnimation() {
+        galaxyFoldSection.classList.remove('animate-in');
+        
+        // Reset all product items
+        const productItems = galaxyFoldSection.querySelectorAll('.text-center');
+        productItems.forEach(item => {
+            item.classList.remove('animate-in');
+        });
+    }
+
+
+
+    // Intersection Observer for smooth animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (entry.target.classList.contains('washing-machine-section')) {
+                    triggerWashingMachineAnimation();
+                } else if (entry.target.classList.contains('galaxy-watch-section')) {
+                    triggerGalaxyWatchAnimation();
+                } else if (entry.target.classList.contains('galaxy-fold-section')) {
+                    triggerGalaxyFoldAnimation();
+                }
+            } else {
+                // Reset animations when scrolling away for future re-animation
+                if (entry.target.classList.contains('washing-machine-section')) {
+                    resetWashingMachineAnimation();
+                } else if (entry.target.classList.contains('galaxy-watch-section')) {
+                    resetGalaxyWatchAnimation();
+                } else if (entry.target.classList.contains('galaxy-fold-section')) {
+                    resetGalaxyFoldAnimation();
+                }
+            }
+        });
+    }, {
+        threshold: 0.1, // Trigger when 10% of element is visible
+        rootMargin: '-50px 0px -50px 0px' // Add margin to trigger at better scroll position
+    });
+
+    // Observe all sections
+    if (washingMachineSection) {
+        observer.observe(washingMachineSection);
+    }
+    if (galaxyWatchSection) {
+        observer.observe(galaxyWatchSection);
+    }
+    if (galaxyFoldSection) {
+        observer.observe(galaxyFoldSection);
+    }
+
+
+    // Shop dropdown menu animations
+    const shopButton = document.querySelector('.shop-button');
+    const shopDropdown = document.querySelector('.shop-dropdown');
+    
+    if (shopButton && shopDropdown) {
+        // Add staggered animation for dropdown items
+        const dropdownItems = shopDropdown.querySelectorAll('a, h3');
+        dropdownItems.forEach((item, index) => {
+            // Don't set initial opacity to 0, just set the transition
+            item.style.transform = 'translateY(10px)';
+            item.style.transition = `opacity 0.3s ease ${0.05 * index}s, transform 0.3s ease ${0.05 * index}s`;
+        });
+
+        // Create a MutationObserver to watch for visibility changes
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.attributeName === 'class') {
+                    const isVisible = !shopDropdown.classList.contains('invisible');
+                    if (isVisible) {
+                        // When dropdown becomes visible, animate items in
+                        dropdownItems.forEach((item) => {
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 50);
+                        });
+                    } else {
+                        // Reset when hidden - only reset transform, not opacity
+                        dropdownItems.forEach((item) => {
+                            item.style.transform = 'translateY(10px)';
+                        });
+                    }
+                }
+            });
+        });
+
+        // Start observing the dropdown for class changes
+        observer.observe(shopDropdown, { attributes: true });
+    }
+
+    // Enhanced smooth scroll for navigation links
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (this.getAttribute('href') === '#') {
+                e.preventDefault();
+                return;
+            }
+            
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId.startsWith('#')) {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+
+    // Enhanced button hover effects
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px) scale(1.05)';
+            this.style.transition = 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+    
+    // Cart functionality
+    const cartLink = document.getElementById('cartLink');
+    const cartBadge = document.getElementById('cartBadge');
+    let cartItems = JSON.parse(localStorage.getItem('samsungCartItems')) || [];
+    
+    // Update cart badge count
+    function updateCartBadge() {
+        if (cartBadge) {
+            if (cartItems.length > 0) {
+                cartBadge.textContent = cartItems.length;
+                cartBadge.classList.remove('hidden');
+            } else {
+                cartBadge.classList.add('hidden');
+            }
+        }
+    }
+    
+    // Initialize cart badge
+    updateCartBadge();
+    
+    // Add click event to cart icon
+    if (cartLink) {
+        cartLink.addEventListener('click', function(e) {
+            // No need to prevent default, let it navigate to cart.html
+            // We'll just update the badge before navigation
+            updateCartBadge();
+        });
+    }
+    
+    // Add to cart functionality for buy buttons
+    const buyButtons = document.querySelectorAll('button:not(.galaxy-watch-button):not(.galaxy-fold-button)');
+    buyButtons.forEach(button => {
+        if (button.textContent.toLowerCase().includes('buy')) {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Get product info from the page
+                const productName = document.querySelector('h1, .font-display')?.textContent || 'Samsung Product';
+                const productPrice = document.querySelector('.text-gray-800.font-medium')?.textContent || '₹ 0';
+                
+                // Create a product object
+                const product = {
+                    id: Date.now(),
+                    name: productName,
+                    price: productPrice,
+                    quantity: 1
+                };
+                
+                // Add to cart
+                cartItems.push(product);
+                localStorage.setItem('samsungCartItems', JSON.stringify(cartItems));
+                
+                // Update cart badge
+                updateCartBadge();
+                
+                // Show confirmation
+                alert(`Added ${productName} to your cart!`);
+            });
+        }
+    });
+
+    // Add click ripple effect to all buttons
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple-effect');
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+
+    // Add CSS for ripple effect
+    const style = document.createElement('style');
+    style.textContent = `
+        .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+});

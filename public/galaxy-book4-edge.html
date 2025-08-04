@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy Book4 Edge - Samsung</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .star-emoji {
+            font-size: 1.2em;
+            margin-right: 2px;
+        }
+        .phone-image {
+            transition: transform 0.3s ease;
+        }
+        .phone-image:hover {
+            transform: scale(1.05);
+        }
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .countdown-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .countdown-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .countdown-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+        .countdown-separator {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Freedom Sale Banner with Countdown -->
+    <div class="bg-black text-white py-2 px-4 flex justify-between items-center">
+        <div class="text-sm md:text-base">Freedom Sale : Starting at just ₹ 46500* or ₹ 3875/mo*. with instant bank discount</div>
+        <div class="countdown-container">
+            <div class="countdown-box">
+                <span class="countdown-number" id="days">05</span>
+                <span class="countdown-label">days</span>
+            </div>
+            <span class="countdown-separator">:</span>
+            <div class="countdown-box">
+                <span class="countdown-number" id="hours">00</span>
+                <span class="countdown-label">hours</span>
+            </div>
+            <span class="countdown-separator">:</span>
+            <div class="countdown-box">
+                <span class="countdown-number" id="minutes">36</span>
+                <span class="countdown-label">mins</span>
+            </div>
+            <span class="countdown-separator">:</span>
+            <div class="countdown-box">
+                <span class="countdown-number" id="seconds">32</span>
+                <span class="countdown-label">secs</span>
+            </div>
+        </div>
+    </div>
+    <!-- Navigation Tabs -->
+    <nav class="bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8">
+                <a href="#" class="border-b-2 border-gray-600 py-4 px-1 text-sm font-medium text-gray-600">Overview</a>
+                <a href="#" class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">Specs</a>
+                <a href="#" class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">Reviews</a>
+                <a href="#" class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-4">
+                    <li>
+                        <div>
+                            <a href="index.html" class="text-gray-400 hover:text-gray-500">
+                                <svg class="flex-shrink-0 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="flex-shrink-0 h-5 w-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <a href="#" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Laptops</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="flex-shrink-0 h-5 w-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="ml-4 text-sm font-medium text-gray-500">Galaxy Book4 Edge</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Product Image -->
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-200 relative overflow-hidden">
+                    <!-- Slideshow Container -->
+                    <div id="slideshowContainer" class="relative">
+                        <img id="mainProductImage" src="https://images.samsung.com/is/image/samsung/assets/in/galaxy-book/galaxy-book5/buy/GB4_Edge_Carousel_Product-KV_MS_UK_PC.jpg?imbypass=true" alt="Galaxy Book4 Edge" class="w-full h-auto phone-image transition-opacity duration-500">
+                        <img id="secondProductImage" src="https://images.samsung.com/is/image/samsung/assets/in/galaxy-book/galaxy-book5/buy/GB4_Edge_Carousel_Product-KV_15_1_pc_1.jpg?imbypass=true" alt="Galaxy Book4 Edge" class="w-full h-auto phone-image absolute top-0 left-0 opacity-0 transition-opacity duration-500">
+                    </div>
+                    
+                    <!-- Navigation Dots -->
+                    <div class="flex justify-center mt-4 space-x-2">
+                        <button id="dot1" class="w-3 h-3 bg-black rounded-full transition-colors duration-300"></button>
+                        <button id="dot2" class="w-3 h-3 bg-gray-300 rounded-full transition-colors duration-300"></button>
+                    </div>
+                    
+                    <!-- Navigation Arrows -->
+                    <button id="prevSlide" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 p-2 rounded-full shadow-lg transition-all duration-300">
+                        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                    <button id="nextSlide" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 p-2 rounded-full shadow-lg transition-all duration-300">
+                        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Details -->
+            <div class="space-y-6">
+                <div>
+                    <h1 id="productTitle" class="text-3xl font-bold text-gray-900 mb-2">Galaxy Book4 Edge</h1>
+                    <div class="flex items-center mb-4">
+                        <div class="flex items-center">
+                            <span class="star-emoji">⭐</span>
+                            <span class="star-emoji">⭐</span>
+                            <span class="star-emoji">⭐</span>
+                            <span class="star-emoji">⭐</span>
+                            <span class="star-emoji">⭐</span>
+                            <span class="ml-2 text-sm text-gray-600">(4.8)</span>
+                        </div>
+                        <span class="mx-2 text-gray-300">|</span>
+                        <span class="text-sm text-gray-600">Write a review</span>
+                    </div>
+                    <p class="text-gray-600 mb-6">Experience the future of computing with the Galaxy Book4 Edge, featuring cutting-edge AI capabilities and seamless integration with your Samsung ecosystem.</p>
+                </div>
+
+                <!-- Configuration Options -->
+                <div class="space-y-6">
+                    <!-- Choose Storage -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Choose Storage</h3>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button class="storage-option p-4 border-2 border-gray-200 rounded-lg text-left hover:border-black transition-colors" data-storage="256GB">
+                                <div class="font-medium text-gray-900">256GB</div>
+                                <div class="text-sm text-gray-600">SSD</div>
+                            </button>
+                            <button class="storage-option p-4 border-2 border-gray-200 rounded-lg text-left hover:border-black transition-colors" data-storage="512GB">
+                                <div class="font-medium text-gray-900">512GB</div>
+                                <div class="text-sm text-gray-600">SSD</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Choose Color -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Choose Colour</h3>
+                        <div class="grid grid-cols-1 gap-3">
+                            <button class="color-option p-2 border-2 border-black bg-gray-50 rounded-lg text-center hover:border-black transition-colors w-24" data-color="silver">
+                                <div class="w-6 h-6 bg-gray-300 rounded-full mx-auto mb-1"></div>
+                                <div class="text-xs font-medium text-gray-900">Silver</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Price and Add to Cart -->
+                <div class="border-t border-gray-200 pt-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <span id="productPrice" class="text-3xl font-bold text-gray-900">₹1,49,999</span>
+                            <span class="text-sm text-gray-500 line-through ml-2">₹1,69,999</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="relative">
+                                <div id="cartIcon" class="cursor-pointer">
+                                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"/>
+                                    </svg>
+                                    <span id="cartBadge" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 items-center justify-center hidden">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="addToCartBtn" class="w-full bg-black text-white py-3 px-6 rounded-lg font-medium hover:bg-gray-800 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-lg max-w-md w-full max-h-[80vh] overflow-y-auto">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-gray-900">Shopping Cart</h3>
+                        <button id="closeCartModal" class="text-gray-400 hover:text-gray-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="cartItems" class="space-y-4 mb-6">
+                        <!-- Cart items will be dynamically added here -->
+                    </div>
+                    <div class="border-t border-gray-200 pt-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-medium text-gray-900">Total:</span>
+                            <span id="cartTotal" class="font-bold text-gray-900">₹0</span>
+                        </div>
+                        <button class="w-full bg-black text-white py-3 px-6 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                            Checkout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notificationToast" class="fixed top-4 right-4 bg-black text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+        <div class="flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span id="notificationMessage">Item added to cart!</span>
+        </div>
+    </div>
+
+    <script>
+        // Cart system variables
+        let cart = [];
+        const MAX_CART_ITEMS = 5;
+
+        // Slideshow variables
+        let currentSlide = 0;
+        const slides = [
+            'https://images.samsung.com/is/image/samsung/assets/in/galaxy-book/galaxy-book5/buy/GB4_Edge_Carousel_Product-KV_MS_UK_PC.jpg?imbypass=true',
+            'https://images.samsung.com/is/image/samsung/assets/in/galaxy-book/galaxy-book5/buy/GB4_Edge_Carousel_Product-KV_15_1_pc_1.jpg?imbypass=true'
+        ];
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set default selections
+            selectStorage('256GB');
+            // Silver is pre-selected and is the only color option
+
+            // Add event listeners
+            document.getElementById('cartIcon').addEventListener('click', toggleCart);
+            document.getElementById('closeCartModal').addEventListener('click', toggleCart);
+            document.getElementById('addToCartBtn').addEventListener('click', addToCart);
+            
+            // Close modal when clicking outside
+            document.getElementById('cartModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    toggleCart();
+                }
+            });
+
+            // Storage option event listeners
+            document.querySelectorAll('.storage-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    selectStorage(this.dataset.storage);
+                });
+            });
+
+            // Color option event listeners
+            document.querySelectorAll('.color-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    selectColor(this.dataset.color);
+                });
+            });
+
+            // Slideshow event listeners
+            document.getElementById('nextSlide').addEventListener('click', nextSlide);
+            document.getElementById('prevSlide').addEventListener('click', prevSlide);
+            document.getElementById('dot1').addEventListener('click', () => goToSlide(0));
+            document.getElementById('dot2').addEventListener('click', () => goToSlide(1));
+
+            // Auto-advance slideshow every 5 seconds
+            setInterval(nextSlide, 5000);
+        });
+
+        // Storage selection function
+        function selectStorage(storage) {
+            // Remove active class from all storage options
+            document.querySelectorAll('.storage-option').forEach(option => {
+                option.classList.remove('border-black', 'bg-gray-50');
+                option.classList.add('border-gray-200');
+            });
+
+            // Add active class to selected option
+            const selectedOption = document.querySelector(`[data-storage="${storage}"]`);
+            selectedOption.classList.remove('border-gray-200');
+            selectedOption.classList.add('border-black', 'bg-gray-50');
+
+            // Update product title and price
+            updateProductTitle(storage);
+            updatePricing(storage);
+        }
+
+        // Color selection function
+        function selectColor(color) {
+            // Remove active class from all color options
+            document.querySelectorAll('.color-option').forEach(option => {
+                option.classList.remove('border-black', 'bg-gray-50');
+                option.classList.add('border-gray-200');
+            });
+
+            // Add active class to selected option
+            const selectedOption = document.querySelector(`[data-color="${color}"]`);
+            selectedOption.classList.remove('border-gray-200');
+            selectedOption.classList.add('border-black', 'bg-gray-50');
+
+            // Update product image based on color
+            updateProductImage(color);
+        }
+
+        // Update product title
+        function updateProductTitle(storage) {
+            const title = document.getElementById('productTitle');
+            title.textContent = `Galaxy Book4 Edge (${storage})`;
+        }
+
+        // Update pricing
+        function updatePricing(storage) {
+            const priceElement = document.getElementById('productPrice');
+            const originalPriceElement = priceElement.nextElementSibling;
+            
+            if (storage === '256GB') {
+                priceElement.textContent = '₹1,49,999';
+                originalPriceElement.textContent = '₹1,69,999';
+            } else if (storage === '512GB') {
+                priceElement.textContent = '₹1,79,999';
+                originalPriceElement.textContent = '₹1,99,999';
+            }
+        }
+
+        // Update product image
+        function updateProductImage(color) {
+            const image = document.getElementById('mainProductImage');
+            const currentSrc = image.src;
+            
+            // Add fade out effect
+            image.style.opacity = '0';
+            
+            setTimeout(() => {
+                // Update image source based on color
+                if (color === 'silver') {
+                    image.src = 'https://images.samsung.com/is/image/samsung/assets/in/galaxy-book/galaxy-book5/buy/GB4_Edge_Carousel_Product-KV_MS_UK_PC.jpg?imbypass=true';
+                }
+                
+                // Add fade in effect
+                image.style.opacity = '1';
+            }, 150);
+        }
+
+        // Slideshow functions
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlideshow();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlideshow();
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateSlideshow();
+        }
+
+        function updateSlideshow() {
+            const mainImage = document.getElementById('mainProductImage');
+            const secondImage = document.getElementById('secondProductImage');
+            const dot1 = document.getElementById('dot1');
+            const dot2 = document.getElementById('dot2');
+
+            if (currentSlide === 0) {
+                mainImage.style.opacity = '1';
+                secondImage.style.opacity = '0';
+                dot1.classList.remove('bg-gray-300');
+                dot1.classList.add('bg-black');
+                dot2.classList.remove('bg-black');
+                dot2.classList.add('bg-gray-300');
+            } else {
+                mainImage.style.opacity = '0';
+                secondImage.style.opacity = '1';
+                dot1.classList.remove('bg-black');
+                dot1.classList.add('bg-gray-300');
+                dot2.classList.remove('bg-gray-300');
+                dot2.classList.add('bg-black');
+            }
+        }
+
+        // Cart functions
+        function toggleCart() {
+            const modal = document.getElementById('cartModal');
+            modal.classList.toggle('hidden');
+            updateCartDisplay();
+        }
+
+        function addToCart() {
+            const currentStorage = document.querySelector('.storage-option.border-black').dataset.storage;
+            // Silver is the only color option now
+            const currentColor = 'silver';
+            
+            // Check if cart is full
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            if (totalItems >= MAX_CART_ITEMS) {
+                showNotification('Cart is full! Maximum 5 items allowed.', 'error');
+                return;
+            }
+
+            // Find existing item with same configuration
+            const existingItemIndex = cart.findIndex(item => 
+                item.product === 'Galaxy Book4 Edge' && 
+                item.storage === currentStorage
+                // Color is always silver now
+            );
+
+            if (existingItemIndex !== -1) {
+                // Increment quantity if item exists
+                if (cart[existingItemIndex].quantity < 5) {
+                    cart[existingItemIndex].quantity++;
+                    showNotification('Item quantity updated!', 'success');
+                } else {
+                    showNotification('Maximum quantity reached for this item!', 'error');
+                    return;
+                }
+            } else {
+                // Add new item
+                cart.push({
+                    product: 'Galaxy Book4 Edge',
+                    storage: currentStorage,
+                    color: currentColor,
+                    price: currentStorage === '256GB' ? 149999 : 179999,
+                    quantity: 1
+                });
+                showNotification('Item added to cart!', 'success');
+            }
+
+            updateCartBadge();
+        }
+
+        function updateQuantity(index, change) {
+            const item = cart[index];
+            const newQuantity = item.quantity + change;
+            
+            if (newQuantity <= 0) {
+                cart.splice(index, 1);
+                showNotification('Item removed from cart!', 'success');
+            } else if (newQuantity <= 5) {
+                item.quantity = newQuantity;
+                showNotification('Quantity updated!', 'success');
+            } else {
+                showNotification('Maximum quantity is 5!', 'error');
+                return;
+            }
+            
+            updateCartBadge();
+            updateCartDisplay();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartBadge();
+            updateCartDisplay();
+            showNotification('Item removed from cart!', 'success');
+        }
+
+        function updateCartBadge() {
+            const badge = document.getElementById('cartBadge');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            
+            if (totalItems > 0) {
+                badge.textContent = totalItems;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="text-gray-500 text-center py-4">Your cart is empty</p>';
+                cartTotal.textContent = '₹0';
+                return;
+            }
+
+            let itemsHTML = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                itemsHTML += `
+                    <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                        <div class="flex-1">
+                            <h4 class="font-medium text-gray-900">${item.product}</h4>
+                            <p class="text-sm text-gray-600">${item.storage} • ${item.color}</p>
+                            <p class="text-sm font-medium text-gray-900">₹${item.price.toLocaleString()}</p>
+                        </div>
+                        <div class="flex items-center space-x-2 ml-4">
+                            <button onclick="updateQuantity(${index}, -1)" class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/>
+                                </svg>
+                            </button>
+                            <span class="w-8 text-center font-medium">${item.quantity}</span>
+                            <button onclick="updateQuantity(${index}, 1)" class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                                </svg>
+                            </button>
+                            <button onclick="removeFromCart(${index})" class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center hover:bg-red-200 transition-colors">
+                                <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartItems.innerHTML = itemsHTML;
+            cartTotal.textContent = `₹${total.toLocaleString()}`;
+        }
+
+        function showNotification(message, type = 'success') {
+            const toast = document.getElementById('notificationToast');
+            const messageElement = document.getElementById('notificationMessage');
+            
+            messageElement.textContent = message;
+            
+            // Update toast styling based on type
+            if (type === 'error') {
+                toast.classList.remove('bg-black');
+                toast.classList.add('bg-red-500');
+            } else {
+                toast.classList.remove('bg-red-500');
+                toast.classList.add('bg-black');
+            }
+            
+            // Show toast
+            toast.classList.remove('translate-x-full');
+            
+            // Hide toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.add('translate-x-full');
+            }, 3000);
+        }
+
+        // Expose functions to global scope for inline HTML event handlers
+        window.updateQuantity = updateQuantity;
+        window.removeFromCart = removeFromCart;
+    </script>
+
+    <!-- Countdown Timer Script -->
+    <script>
+        // Set the countdown date (5 days from now)
+        const countdownDate = new Date();
+        countdownDate.setDate(countdownDate.getDate() + 5);
+        
+        // Update the countdown every second
+        const countdownTimer = setInterval(function() {
+            // Get current date and time
+            const now = new Date().getTime();
+            
+            // Find the distance between now and the countdown date
+            const distance = countdownDate - now;
+            
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display the result
+            document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+            
+            // If the countdown is finished, clear the interval
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
