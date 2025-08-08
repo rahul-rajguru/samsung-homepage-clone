@@ -272,6 +272,10 @@
         <button id="addToCartBtn" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
           Add to Cart
         </button>
+        <!-- Login Message (Hidden by default) -->
+        <div id="loginMessage" class="hidden fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50">
+          Please <a href="login.html" class="underline font-bold">login</a> to use the Add to Cart feature
+        </div>
       </div>
     </div>
   </div>
@@ -451,16 +455,24 @@
        }
 
        // Cart functionality
-       const cartIcon = document.getElementById('cartIcon');
-       const cartBadge = document.getElementById('cartBadge');
-       const cartModal = document.getElementById('cartModal');
-       const closeCartBtn = document.getElementById('closeCartBtn');
-       const cartItems = document.getElementById('cartItems');
-       const cartTotalItems = document.getElementById('cartTotalItems');
-       const cartTotalPrice = document.getElementById('cartTotalPrice');
-       const addToCartBtn = document.getElementById('addToCartBtn');
-       const notificationToast = document.getElementById('notificationToast');
-       const notificationText = document.getElementById('notificationText');
+      let cart = JSON.parse(localStorage.getItem('samsungCartItems')) || [];
+      const MAX_CART_ITEMS = 5;
+      
+      const cartIcon = document.getElementById('cartIcon');
+      const cartBadge = document.getElementById('cartBadge');
+      const cartModal = document.getElementById('cartModal');
+      const closeCartBtn = document.getElementById('closeCartBtn');
+      const cartItems = document.getElementById('cartItems');
+      const cartTotalItems = document.getElementById('cartTotalItems');
+      const cartTotalPrice = document.getElementById('cartTotalPrice');
+      const addToCartBtn = document.getElementById('addToCartBtn');
+      const notificationToast = document.getElementById('notificationToast');
+      const notificationText = document.getElementById('notificationText');
+      
+      // Update cart badge on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        updateCartBadge();
+      });
 
        // Open cart modal
        cartIcon.addEventListener('click', function() {
@@ -480,8 +492,26 @@
          }
        });
 
+       // Function to check if user is logged in
+       function isUserLoggedIn() {
+         return localStorage.getItem('currentUser') !== null;
+       }
+
        // Add to cart functionality
        addToCartBtn.addEventListener('click', function() {
+         // Check if user is logged in
+         if (!isUserLoggedIn()) {
+           // Show login message
+           const loginMessage = document.getElementById('loginMessage');
+           loginMessage.classList.remove('hidden');
+           
+           // Hide login message after 3 seconds
+           setTimeout(() => {
+             loginMessage.classList.add('hidden');
+           }, 3000);
+           return;
+         }
+         
          if (cart.length >= MAX_CART_ITEMS) {
            showNotification('Cart is full! Maximum 5 items allowed.', 'error');
            return;
@@ -506,7 +536,7 @@
            'https://images.samsung.com/is/image/samsung/p6pim/in/f2507/gallery/in-galaxy-watch8-l320-sm-l320ndaains-547660085?$684_547_PNG$';
 
          const cartItem = {
-           id: `${productName}-${connectivity}-${color}`,
+           id: `galaxy-watch8-${productName}-${connectivity}-${color}`,
            name: `Galaxy ${productName}`,
            connectivity: connectivity,
            color: color,
@@ -526,6 +556,7 @@
            showNotification('Item added to cart!', 'success');
          }
 
+         localStorage.setItem('samsungCartItems', JSON.stringify(cart));
          updateCartBadge();
          updateCartDisplay();
        });

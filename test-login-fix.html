@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Login Fix</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+        .login-btn { background-color: #007bff; color: white; border: none; border-radius: 3px; }
+        .logout-btn { background-color: #dc3545; color: white; border: none; border-radius: 3px; }
+        .test-btn { background-color: #28a745; color: white; border: none; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>Galaxy Z Flip7 Login Fix Test</h1>
+    
+    <div class="test-section">
+        <h3>Current Login Status</h3>
+        <p id="loginStatus">Not logged in</p>
+        <button class="login-btn" onclick="simulateLogin()">Simulate Login</button>
+        <button class="logout-btn" onclick="simulateLogout()">Simulate Logout</button>
+    </div>
+    
+    <div class="test-section">
+        <h3>Test Add to Cart Function</h3>
+        <p>This tests the same addToCart function logic from Galaxy Z Flip7 page:</p>
+        <button class="test-btn" onclick="testAddToCart()">Test Add to Cart</button>
+        <div id="testResult"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Instructions</h3>
+        <ol>
+            <li>First, try "Test Add to Cart" while logged out - should show login alert</li>
+            <li>Click "Simulate Login" to log in</li>
+            <li>Try "Test Add to Cart" again - should work and show success</li>
+            <li>Click "Simulate Logout" and test again - should require login</li>
+        </ol>
+    </div>
+
+    <script>
+        // Same login check function as Galaxy Z Flip7 page
+        function isUserLoggedIn() {
+            return localStorage.getItem('samsungUser') !== null;
+        }
+        
+        // Same addToCart function logic as Galaxy Z Flip7 page (with the fix)
+        function addToCart(color = 'Blue') {
+            // Additional safety check - ensure user is logged in
+            if (!isUserLoggedIn()) {
+                alert('Please login to add items to cart');
+                // In real page, this would redirect: window.location.href = 'login.html';
+                updateTestResult('❌ Login required - redirecting to login page', 'error');
+                return;
+            }
+            
+            // Product details (simplified for test)
+            const product = {
+                name: 'Galaxy Z Flip7',
+                price: '₹ 121,999',
+                color: color,
+                storage: '512GB',
+                quantity: 1
+            };
+            
+            // Get existing cart items or initialize empty array
+            let cartItems = JSON.parse(localStorage.getItem('samsungCartItems')) || [];
+            
+            // Check if product already exists in cart
+            const existingProductIndex = cartItems.findIndex(item => 
+                item.name === product.name && item.color === product.color && item.storage === product.storage
+            );
+            
+            if (existingProductIndex !== -1) {
+                // Increment quantity if product already exists
+                cartItems[existingProductIndex].quantity += 1;
+            } else {
+                // Add new product to cart
+                cartItems.push(product);
+            }
+            
+            // Save updated cart to localStorage
+            localStorage.setItem('samsungCartItems', JSON.stringify(cartItems));
+            
+            // Show success message
+            alert('Product added to cart successfully!');
+            updateTestResult('✅ Product added to cart successfully!', 'success');
+        }
+        
+        function simulateLogin() {
+            localStorage.setItem('samsungUser', JSON.stringify({
+                email: 'test@example.com',
+                name: 'Test User'
+            }));
+            updateLoginStatus();
+        }
+        
+        function simulateLogout() {
+            localStorage.removeItem('samsungUser');
+            updateLoginStatus();
+        }
+        
+        function testAddToCart() {
+            addToCart('Blue');
+        }
+        
+        function updateLoginStatus() {
+            const statusElement = document.getElementById('loginStatus');
+            if (isUserLoggedIn()) {
+                statusElement.textContent = 'Logged in ✅';
+                statusElement.style.color = 'green';
+            } else {
+                statusElement.textContent = 'Not logged in ❌';
+                statusElement.style.color = 'red';
+            }
+        }
+        
+        function updateTestResult(message, type) {
+            const resultElement = document.getElementById('testResult');
+            resultElement.innerHTML = `<div class="${type}" style="margin-top: 10px; padding: 10px; border-radius: 3px;">${message}</div>`;
+        }
+        
+        // Initialize status on page load
+        updateLoginStatus();
+    </script>
+</body>
+</html>

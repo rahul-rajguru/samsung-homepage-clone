@@ -267,7 +267,7 @@
 
     <script>
         // Cart system variables
-        let cart = [];
+        let cart = JSON.parse(localStorage.getItem('samsungCartItems')) || [];
         const MAX_CART_ITEMS = 5;
 
         // Slideshow variables
@@ -439,7 +439,19 @@
             updateCartDisplay();
         }
 
+        // Check if user is logged in
+        function isUserLoggedIn() {
+            return localStorage.getItem('samsungUser') !== null;
+        }
+
         function addToCart() {
+            // Check if user is logged in
+            if (!isUserLoggedIn()) {
+                // User is not logged in, show notification
+                showNotification('Please login to add items to cart', 'error');
+                return;
+            }
+
             const currentStorage = document.querySelector('.storage-option.border-black').dataset.storage;
             // Silver is the only color option now
             const currentColor = 'silver';
@@ -451,35 +463,44 @@
                 return;
             }
 
-            // Find existing item with same configuration
-            const existingItemIndex = cart.findIndex(item => 
-                item.product === 'Galaxy Book4 Edge' && 
-                item.storage === currentStorage
-                // Color is always silver now
-            );
-
+            // For Galaxy Book4 Edge, we only have storage options and a fixed color (silver)
+            const price = currentStorage === '256GB' ? 149999 : 179999;
+            const productName = 'Galaxy Book4 Edge';
+            // Use the provided image URL
+            const image = 'https://media.tatacroma.com/Croma%20Assets/Computers%20Peripherals/Laptop/Images/317312_0_i_taW_362.png?updatedAt=1754055040964';
+            
+            // Create cart item with unique ID
+            const cartItem = {
+                id: `galaxy-book4-edge-${currentStorage}`,
+                name: productName,
+                storage: currentStorage,
+                color: 'Silver',
+                price: price,
+                image: image,
+                quantity: 1
+            };
+            
+            // Check if this item already exists in cart
+            const existingItemIndex = cart.findIndex(item => item.id === cartItem.id);
+            
             if (existingItemIndex !== -1) {
                 // Increment quantity if item exists
                 if (cart[existingItemIndex].quantity < 5) {
                     cart[existingItemIndex].quantity++;
-                    showNotification('Item quantity updated!', 'success');
+                    showNotification('Item quantity updated in cart!', 'success');
                 } else {
                     showNotification('Maximum quantity reached for this item!', 'error');
                     return;
                 }
             } else {
                 // Add new item
-                cart.push({
-                    product: 'Galaxy Book4 Edge',
-                    storage: currentStorage,
-                    color: currentColor,
-                    price: currentStorage === '256GB' ? 149999 : 179999,
-                    quantity: 1
-                });
+                cart.push(cartItem);
                 showNotification('Item added to cart!', 'success');
             }
 
+            localStorage.setItem('samsungCartItems', JSON.stringify(cart));
             updateCartBadge();
+            updateCartDisplay();
         }
 
         function updateQuantity(index, change) {
@@ -540,7 +561,7 @@
                 itemsHTML += `
                     <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
                         <div class="flex-1">
-                            <h4 class="font-medium text-gray-900">${item.product}</h4>
+                            <h4 class="font-medium text-gray-900">${item.name}</h4>
                             <p class="text-sm text-gray-600">${item.storage} • ${item.color}</p>
                             <p class="text-sm font-medium text-gray-900">₹${item.price.toLocaleString()}</p>
                         </div>

@@ -278,9 +278,19 @@
               </div>
               
               <!-- Add to Cart Button -->
-              <button id="addToCartBtn" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
+              <button id="addToCartBtn" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
                 Add to Cart
               </button>
+              
+              <!-- Login Message (Hidden by default) -->
+              <div id="loginMessage" class="hidden mt-4 p-4 bg-yellow-50 text-yellow-800 rounded-md">
+                <p class="flex items-center">
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                  Please <a href="login.html" class="text-blue-600 font-semibold hover:underline">login</a> to use the Add to Cart feature
+                </p>
+              </div>
               
               <!-- Cart Status Message -->
               <div id="cartStatus" class="text-sm text-center hidden">
@@ -371,9 +381,19 @@
             
             <!-- Second Add to Cart Button -->
             <div class="pt-6 border-t border-gray-200">
-              <button id="addToCartColorBtn" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
+              <button id="addToCartColorBtn" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
                 Add to Cart (Selected Color)
               </button>
+              
+              <!-- Login Message for Color Button (Hidden by default) -->
+              <div id="loginMessageColor" class="hidden mt-4 p-4 bg-yellow-50 text-yellow-800 rounded-md">
+                <p class="flex items-center">
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                  Please <a href="login.html" class="text-blue-600 font-semibold hover:underline">login</a> to use the Add to Cart feature
+                </p>
+              </div>
               
               <!-- Color Cart Status Message -->
               <div id="colorCartStatus" class="text-sm text-center mt-2 hidden">
@@ -1113,5 +1133,102 @@
      </div>
    </footer>
 
- </body>
+   <!-- Add to Cart Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const addToCartBtn = document.getElementById('addToCartBtn');
+      const addToCartColorBtn = document.getElementById('addToCartColorBtn');
+      const loginMessage = document.getElementById('loginMessage');
+      const loginMessageColor = document.getElementById('loginMessageColor');
+      
+      // Check if user is logged in
+      function isUserLoggedIn() {
+        return localStorage.getItem('samsungUser') !== null;
+      }
+      
+      // Add to cart functionality
+      function addToCart(color = 'Blue') {
+        // Additional safety check - ensure user is logged in
+        if (!isUserLoggedIn()) {
+          alert('Please login to add items to cart');
+          window.location.href = 'login.html';
+          return;
+        }
+        
+        // Product details
+        const product = {
+          name: 'Galaxy Z Flip7',
+          price: '₹ 121,999',
+          image: 'https://images.samsung.com/in/smartphones/galaxy-z-flip7/buy/product_color_blueShadow_Tablet.png?imbypass=true',
+          color: color,
+          storage: '512GB',
+          quantity: 1
+        };
+        
+        // Get existing cart items or initialize empty array
+        let cartItems = JSON.parse(localStorage.getItem('samsungCartItems')) || [];
+        
+        // Check if product already exists in cart
+        const existingProductIndex = cartItems.findIndex(item => 
+          item.name === product.name && item.color === product.color && item.storage === product.storage
+        );
+        
+        if (existingProductIndex !== -1) {
+          // Increment quantity if product already exists
+          cartItems[existingProductIndex].quantity += 1;
+        } else {
+          // Add new product to cart
+          cartItems.push(product);
+        }
+        
+        // Save updated cart to localStorage
+        localStorage.setItem('samsungCartItems', JSON.stringify(cartItems));
+        
+        // Show success message
+        alert('Product added to cart successfully!');
+      }
+      
+      // Get selected color
+      function getSelectedColor() {
+        if (document.getElementById('blueOption').classList.contains('border-blue-500')) {
+          return 'Blue';
+        } else if (document.getElementById('shadowOption').classList.contains('border-blue-500')) {
+          return 'Shadow';
+        } else if (document.getElementById('jetblackOption').classList.contains('border-blue-500')) {
+          return 'Jet Black';
+        } else if (document.getElementById('coralredOption').classList.contains('border-blue-500')) {
+          return 'Coral Red';
+        }
+        return 'Blue'; // Default color
+      }
+      
+      // Add event listener to first Add to Cart button
+      if (addToCartBtn) {
+        addToCartBtn.addEventListener('click', function() {
+          if (isUserLoggedIn()) {
+            // User is logged in, add to cart
+            addToCart();
+          } else {
+            // User is not logged in, show login message
+            loginMessage.classList.remove('hidden');
+          }
+        });
+      }
+      
+      // Add event listener to second Add to Cart button (color selection)
+      if (addToCartColorBtn) {
+        addToCartColorBtn.addEventListener('click', function() {
+          if (isUserLoggedIn()) {
+            // User is logged in, add to cart with selected color
+            const selectedColor = getSelectedColor();
+            addToCart(selectedColor);
+          } else {
+            // User is not logged in, show login message
+            loginMessageColor.classList.remove('hidden');
+          }
+        });
+      }
+    });
+  </script>
+</body>
 </html>

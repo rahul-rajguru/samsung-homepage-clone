@@ -398,12 +398,38 @@ function resetGalaxyWatchAnimation() {
         });
     }
     
+    // Function to check if user is logged in
+    function isUserLoggedIn() {
+        const userData = localStorage.getItem('samsungUser');
+        return !!userData; // Returns true if userData exists, false otherwise
+    }
+
     // Add to cart functionality for buy buttons
     const buyButtons = document.querySelectorAll('button:not(.galaxy-watch-button):not(.galaxy-fold-button)');
     buyButtons.forEach(button => {
         if (button.textContent.toLowerCase().includes('buy')) {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
+                
+                // Check if user is logged in
+                if (!isUserLoggedIn()) {
+                    // Show login message instead of redirecting
+                    const loginMessage = document.createElement('div');
+                    loginMessage.className = 'fixed top-20 right-5 bg-yellow-100 text-yellow-800 px-4 py-2 rounded-lg shadow-lg z-50 transform transition-all duration-500';
+                    loginMessage.innerHTML = 'Please <a href="login.html" class="text-blue-600 font-semibold hover:underline">login</a> to use the Add to Cart feature';
+                    document.body.appendChild(loginMessage);
+                    
+                    // Remove the message after 3 seconds
+                    setTimeout(() => {
+                        loginMessage.classList.add('opacity-0');
+                        setTimeout(() => {
+                            loginMessage.remove();
+                        }, 500);
+                    }, 3000);
+                    
+                    return;
+                }
+                
                 // Get product info from the page
                 const productName = document.querySelector('h1, .font-display')?.textContent || 'Samsung Product';
                 const productPrice = document.querySelector('.text-gray-800.font-medium')?.textContent || '₹ 0';

@@ -110,10 +110,20 @@
            <span id="cartBadge" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">0</span>
          </div>
 
-        <!-- User Icon -->
-        <svg class="w-5 h-5 cursor-pointer text-gray-700 hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-        </svg>
+        <!-- User Icon with Login/Logout Links -->
+        <div class="flex items-center gap-3">
+          <!-- Login Link (shown when not logged in) -->
+          <a href="login.html" id="loginLink" class="flex items-center" title="Login to your Samsung account">
+            <svg class="w-5 h-5 cursor-pointer text-gray-700 hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+          </a>
+          
+          <!-- Logout Button (hidden by default, shown when logged in) -->
+          <button id="logoutBtn" class="hidden text-sm text-gray-700 hover:text-blue-600 transition-colors font-medium" title="Logout from your Samsung account">
+            Logout
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -237,6 +247,11 @@
          <!-- Cart Status Message -->
          <div id="cartStatus" class="text-sm text-center mt-2 hidden">
            <span id="cartMessage" class="text-green-600 font-medium"></span>
+         </div>
+
+         <!-- Login Message (Hidden by default) -->
+         <div id="loginMessage" class="text-sm text-center mt-2 hidden">
+           <span class="text-red-600 font-medium">Please <a href="login.html" class="underline font-bold">login</a> to use the Add to Cart feature</span>
          </div>
       </div>
     </div>
@@ -504,7 +519,7 @@
       }
 
       // Cart functionality
-      let cart = [];
+      let cart = JSON.parse(localStorage.getItem('samsungCartItems')) || [];
       let selectedColor = 'black'; // Default selection
       const MAX_CART_ITEMS = 5;
       const DELIVERY_CHARGE = 599;
@@ -521,6 +536,11 @@
           'white': 'https://images.samsung.com/is/image/samsung/p6pim/in/f2507/gallery/in-galaxy-watch8-classic-l500-sm-l500nzwains-547660001?$684_547_PNG$'
         }
       };
+      
+      // Update cart badge on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        updateCartBadge();
+      });
 
       // Toggle cart dropdown
       function toggleCart() {
@@ -618,6 +638,21 @@
 
       // Add to cart
       function addToCart() {
+        // Check if user is logged in
+        const userData = localStorage.getItem('samsungUser');
+        if (!userData) {
+          // Show login message
+          const loginMessage = document.getElementById('loginMessage');
+          loginMessage.classList.remove('hidden');
+          
+          // Hide login message after 3 seconds
+          setTimeout(() => {
+            loginMessage.classList.add('hidden');
+          }, 3000);
+          
+          return;
+        }
+        
         if (cart.length >= MAX_CART_ITEMS) {
           showCartMessage('Maximum 5 items allowed in cart!', 'error');
           return;
@@ -625,19 +660,34 @@
         
         const selectedColor = getSelectedColor();
         const selectedProduct = getSelectedProduct();
+        const sizeText = selectedProduct === 'watch8-40' ? '4.0 cm' : '4.4 cm';
         
         const cartItem = {
+          id: `watch8classic-${selectedProduct}-${selectedColor}`,
           name: productDetails.name,
-          size: selectedProduct === 'watch8-40' ? '4.0 cm' : '4.4 cm',
-          color: selectedColor,
+          size: sizeText,
+          color: selectedColor.charAt(0).toUpperCase() + selectedColor.slice(1),
           price: productDetails.prices[selectedProduct],
-          image: productDetails.images[selectedColor]
+          image: productDetails.images[selectedColor],
+          quantity: 1
         };
         
-        cart.push(cartItem);
+        // Check if item already exists in cart
+        const existingItemIndex = cart.findIndex(item => item.id === cartItem.id);
+        
+        if (existingItemIndex !== -1) {
+          cart[existingItemIndex].quantity += 1;
+          showCartMessage('Item quantity updated in cart!', 'success');
+        } else {
+          cart.push(cartItem);
+          showCartMessage('Added to cart successfully!', 'success');
+        }
+        
+        // Save to localStorage
+        localStorage.setItem('samsungCartItems', JSON.stringify(cart));
+        
         updateCartBadge();
         updateCartDisplay();
-        showCartMessage('Added to cart successfully!', 'success');
         
         // Enable/disable add to cart button based on cart limit
         const addToCartBtn = document.getElementById('addToCartBtn');
@@ -692,5 +742,62 @@
       });
   </script>
 
+  <!-- Authentication Script -->
+  <script>
+    // Check if user is logged in
+    document.addEventListener('DOMContentLoaded', function() {
+      const userData = localStorage.getItem('samsungUser');
+      const loginLink = document.getElementById('loginLink');
+      const logoutBtn = document.getElementById('logoutBtn');
+      
+      // If user data exists in localStorage, user is logged in
+      if (userData) {
+        const user = JSON.parse(userData);
+        
+        // Update UI for logged-in state
+        if (loginLink) loginLink.classList.add('hidden');
+        if (logoutBtn) logoutBtn.classList.remove('hidden');
+      } else {
+        // Update UI for logged-out state
+        if (loginLink) loginLink.classList.remove('hidden');
+        if (logoutBtn) logoutBtn.classList.add('hidden');
+      }
+      
+      // Add logout functionality
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', function() {
+          // Remove user data from localStorage
+          localStorage.removeItem('samsungUser');
+          
+          // Show logout notification
+          const logoutPopup = document.createElement('div');
+          logoutPopup.className = 'fixed top-20 right-5 bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg z-50 transform transition-all duration-500 opacity-0 translate-y-2';
+          logoutPopup.innerHTML = 'You have been successfully logged out!';
+          document.body.appendChild(logoutPopup);
+          
+          // Show the popup
+          setTimeout(() => {
+            logoutPopup.classList.remove('opacity-0', 'translate-y-2');
+            logoutPopup.classList.add('opacity-100', 'translate-y-0');
+          }, 100);
+          
+          // Hide the popup after 3 seconds
+          setTimeout(() => {
+            logoutPopup.classList.add('opacity-0', 'translate-y-2');
+            setTimeout(() => {
+              logoutPopup.remove();
+              
+              // Redirect to home page after logout
+              window.location.href = 'index.html';
+            }, 500);
+          }, 3000);
+          
+          // Update UI immediately
+          loginLink.classList.remove('hidden');
+          logoutBtn.classList.add('hidden');
+        });
+      }
+    });
+  </script>
 </body>
-</html> 
+</html>
