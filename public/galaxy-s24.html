@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samsung Galaxy S24 | Samsung India</title>
+  <link href="output.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Custom Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    @keyframes scaleIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    
+    .animate-slide-up {
+      animation: slideUp 0.8s ease-out forwards;
+    }
+    
+    .animate-scale-in {
+      animation: scaleIn 0.8s ease-out forwards;
+    }
+    
+    /* Font Styles */
+    .font-display {
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <!-- Header Section -->
+  <header class="bg-white shadow-md">
+    <!-- Top Bar -->
+    <div class="bg-gray-900 text-white text-xs py-1 px-4">
+      <div class="container mx-auto flex justify-end space-x-4">
+        <a href="#" class="hover:text-blue-300 transition-colors">Support</a>
+        <a href="#" class="hover:text-blue-300 transition-colors">For Business</a>
+      </div>
+    </div>
+    
+    <!-- Main Navigation -->
+    <div class="container mx-auto px-4 py-4">
+      <div class="flex justify-between items-center">
+        <!-- Samsung Logo -->
+        <a href="index.html" class="text-2xl font-bold text-blue-600">
+          <svg class="w-24" viewBox="0 0 85 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M44.093.075c-5.791 0-10.098 3.962-10.098 9.84 0 5.878 4.307 9.84 10.098 9.84 5.79 0 10.097-3.962 10.097-9.84S49.883.075 44.093.075zm0 15.815c-3.307 0-5.517-2.545-5.517-5.975 0-3.43 2.21-5.975 5.517-5.975 3.306 0 5.516 2.544 5.516 5.975 0 3.43-2.21 5.975-5.516 5.975zM14.453 19.488h4.58V10.73c0-3.962-2.21-6.506-6.516-6.506-1.79 0-3.58.692-4.58 2.076V.342H3.355v19.146h4.58v-8.49c0-2.076 1.21-3.43 3.097-3.43 1.887 0 3.42 1.354 3.42 3.43v8.49zM67.41.075c-5.79 0-10.097 3.962-10.097 9.84 0 5.878 4.307 9.84 10.097 9.84 5.79 0 10.097-3.962 10.097-9.84S73.2.075 67.41.075zm0 15.815c-3.307 0-5.517-2.545-5.517-5.975 0-3.43 2.21-5.975 5.517-5.975 3.306 0 5.516 2.544 5.516 5.975 0 3.43-2.21 5.975-5.516 5.975zM27.743 4.224c-1.79 0-3.58.692-4.58 2.076V4.49h-4.58v14.997h4.58v-8.49c0-2.076 1.21-3.43 3.097-3.43 1.887 0 3.42 1.354 3.42 3.43v8.49h4.58V10.73c0-3.962-2.21-6.506-6.517-6.506zM81.677 4.49h-4.58v14.997h4.58V4.49z" fill="currentColor"/>
+            <circle cx="79.387" cy="1.695" r="1.695" fill="currentColor"/>
+          </svg>
+        </a>
+        
+        <!-- Product Navigation -->
+        <nav class="hidden md:flex space-x-6 text-sm font-medium">
+          <a href="#features" class="text-gray-700 hover:text-blue-600 transition-colors">Features</a>
+          <a href="#compare" class="text-gray-700 hover:text-blue-600 transition-colors">Compare</a>
+          <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">Experience live demo</a>
+          <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">Switch to Galaxy</a>
+          <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">Accessories</a>
+        </nav>
+        
+        <!-- Main Navigation Links -->
+        <nav class="hidden lg:flex space-x-6 text-sm font-medium">
+          <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">Shop</a>
+          <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">Mobile</a>
+          <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">TV & AV</a>
+          <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">Appliances</a>
+          <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">Computing & Displays</a>
+          <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">Accessories</a>
+        </nav>
+        
+        <!-- Icons -->
+        <div class="flex items-center space-x-4">
+          <!-- Search Icon -->
+          <button class="text-gray-700 hover:text-blue-600 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </button>
+          
+          <!-- Cart Icon -->
+          <a href="cart.html" class="text-gray-700 hover:text-blue-600 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+            </svg>
+          </a>
+          
+          <!-- User Icon -->
+          <a href="login.html" class="text-gray-700 hover:text-blue-600 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+          </a>
+          
+          <!-- Mobile Menu Button -->
+          <button class="md:hidden text-gray-700 hover:text-blue-600 transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Product Selection Bar -->
+    <div class="bg-gray-100 py-3 px-4 border-t border-b border-gray-200">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+          <span class="text-sm font-medium text-gray-700">Galaxy S24</span>
+          <span class="text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded-full">New</span>
+        </div>
+        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors">Book now</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative h-screen">
+    <!-- Background Image -->
+    <img src="https://images.samsung.com/in/smartphones/galaxy-s24/images/galaxy-s24-highlights-kv.jpg?imbypass=true" 
+         alt="Samsung Galaxy S24" 
+         class="absolute inset-0 w-full h-full object-cover object-center">
+    
+    <!-- Text Overlay -->
+    <div class="absolute inset-0 flex items-center justify-start bg-gradient-to-r from-black/70 to-transparent">
+      <div class="container mx-auto px-6 md:px-12">
+        <div class="max-w-lg text-white animate-fade-in" style="animation-delay: 0.3s;">
+          <h1 class="text-5xl md:text-6xl font-display font-bold mb-4">Galaxy S24</h1>
+          <p class="text-xl md:text-2xl mb-6">Compact powerhouse with vibrant display and all-day battery</p>
+          <p class="text-lg mb-8">Starting at ₹74,999</p>
+          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition-colors inline-block text-center">Book now</a>
+            <a href="#features" class="bg-white text-blue-600 px-6 py-3 rounded-full text-lg font-medium hover:bg-gray-100 transition-colors inline-block text-center">Learn more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-display font-bold text-center mb-16">Galaxy S24 Features</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <!-- Feature 1 -->
+        <div class="bg-gray-50 rounded-2xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v12h16V6H4zm8 3a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Dynamic AMOLED Display</h3>
+          <p class="text-gray-600">Experience vibrant colors and deep blacks on the 6.2-inch Dynamic AMOLED display with 120Hz refresh rate for ultra-smooth scrolling.</p>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="bg-gray-50 rounded-2xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0-2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-9a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm0 10a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Pro-Grade Camera System</h3>
+          <p class="text-gray-600">Capture stunning photos with the 50MP main camera, 12MP ultra-wide, and 10MP telephoto lens with 3x optical zoom.</p>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="bg-gray-50 rounded-2xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.5 2.54l2.62 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.06-4.09l-2.6-1.53C16.17 17.98 14.21 19 12 19z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">All-Day Battery</h3>
+          <p class="text-gray-600">Stay powered throughout your day with the 4,000mAh battery and fast charging capabilities that get you back to 50% in just 30 minutes.</p>
+        </div>
+        
+        <!-- Feature 4 -->
+        <div class="bg-gray-50 rounded-2xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M7 22v-16h10v16h-10zm2-14v12h6v-12h-6zm1 2h4v2h-4v-2zm0 3h4v2h-4v-2zm0 3h4v2h-4v-2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Galaxy AI</h3>
+          <p class="text-gray-600">Experience the power of AI with features like real-time translation, photo suggestions, and smart text composition to enhance your productivity.</p>
+        </div>
+        
+        <!-- Feature 5 -->
+        <div class="bg-gray-50 rounded-2xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.56 17.66a8 8 0 0 1-11.32 0L1.3 12.7a1 1 0 0 1 0-1.42l4.95-4.95a8 8 0 0 1 11.32 0l4.95 4.95a1 1 0 0 1 0 1.42l-4.95 4.95zm-9.9-1.42a6 6 0 0 0 8.48 0L20.38 12l-4.24-4.24a6 6 0 0 0-8.48 0L3.4 12l4.25 4.24zM11.9 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Armor Aluminum Frame</h3>
+          <p class="text-gray-600">Built with our strongest Armor Aluminum frame yet, providing enhanced durability while maintaining a sleek, premium design.</p>
+        </div>
+        
+        <!-- Feature 6 -->
+        <div class="bg-gray-50 rounded-2xl p-8 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M13 16.68V10h5V7H6v3h5v6.68a3 3 0 1 0 2 0zM12 22a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Snapdragon 8 Gen 3</h3>
+          <p class="text-gray-600">Powered by the latest Snapdragon 8 Gen 3 processor for exceptional performance in gaming, multitasking, and AI processing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compare Section -->
+  <section id="compare" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-display font-bold text-center mb-16">Compare Galaxy S24 Models</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- S24 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div class="p-8 border-b border-gray-200">
+            <h3 class="text-2xl font-bold mb-2">Galaxy S24</h3>
+            <p class="text-gray-600 mb-4">Compact powerhouse</p>
+            <p class="text-2xl font-bold">From ₹74,999</p>
+          </div>
+          <div class="p-8">
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>6.2" Dynamic AMOLED Display</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>50MP Triple Camera</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>4,000mAh Battery</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>8GB RAM</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>Armor Aluminum Frame</span>
+              </li>
+            </ul>
+          </div>
+          <div class="p-8 bg-gray-50">
+            <a href="#" class="block w-full bg-blue-600 text-white text-center px-4 py-3 rounded-full font-medium hover:bg-blue-700 transition-colors">Book now</a>
+          </div>
+        </div>
+        
+        <!-- S24+ -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform scale-105 z-10">
+          <div class="p-8 border-b border-gray-200 bg-blue-50">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-2xl font-bold">Galaxy S24+</h3>
+              <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">Best Value</span>
+            </div>
+            <p class="text-gray-600 mb-4">Perfect balance of size and power</p>
+            <p class="text-2xl font-bold">From ₹89,999</p>
+          </div>
+          <div class="p-8">
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>6.7" Dynamic AMOLED Display</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>50MP Triple Camera</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>4,900mAh Battery</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>12GB RAM</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>Enhanced Armor Aluminum Frame</span>
+              </li>
+            </ul>
+          </div>
+          <div class="p-8 bg-gray-50">
+            <a href="#" class="block w-full bg-blue-600 text-white text-center px-4 py-3 rounded-full font-medium hover:bg-blue-700 transition-colors">Book now</a>
+          </div>
+        </div>
+        
+        <!-- S24 Ultra -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div class="p-8 border-b border-gray-200">
+            <h3 class="text-2xl font-bold mb-2">Galaxy S24 Ultra</h3>
+            <p class="text-gray-600 mb-4">Ultimate flagship experience</p>
+            <p class="text-2xl font-bold">From ₹104,999</p>
+          </div>
+          <div class="p-8">
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>6.8" Dynamic AMOLED Display</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>200MP Quad Camera</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>5,000mAh Battery</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>12GB RAM</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-600 mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span>Titanium Frame & S Pen</span>
+              </li>
+            </ul>
+          </div>
+          <div class="p-8 bg-gray-50">
+            <a href="#" class="block w-full bg-blue-600 text-white text-center px-4 py-3 rounded-full font-medium hover:bg-blue-700 transition-colors">Book now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Column 1 -->
+        <div>
+          <h4 class="text-lg font-bold mb-4">Shop</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Smartphones</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tablets</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Watches</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">TVs</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Refrigerators</a></li>
+          </ul>
+        </div>
+        
+        <!-- Column 2 -->
+        <div>
+          <h4 class="text-lg font-bold mb-4">Support</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Service Locations</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Warranty</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQs</a></li>
+          </ul>
+        </div>
+        
+        <!-- Column 3 -->
+        <div>
+          <h4 class="text-lg font-bold mb-4">About Us</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Company Info</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Sustainability</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Newsroom</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Investor Relations</a></li>
+          </ul>
+        </div>
+        
+        <!-- Column 4 -->
+        <div>
+          <h4 class="text-lg font-bold mb-4">Stay Connected</h4>
+          <p class="text-gray-400 mb-4">Subscribe to our newsletter for the latest updates and offers.</p>
+          <div class="flex">
+            <input type="email" placeholder="Your email" class="bg-gray-800 text-white px-4 py-2 rounded-l-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button class="bg-blue-600 px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors">Subscribe</button>
+          </div>
+          <div class="flex space-x-4 mt-6">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"></path>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-12 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 Samsung Electronics Co., Ltd. All rights reserved.</p>
+          <div class="flex space-x-6">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Terms of Use</a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Legal</a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Accessibility</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

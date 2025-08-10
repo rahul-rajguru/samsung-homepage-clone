@@ -25,17 +25,71 @@
       font-family: 'Inter', sans-serif;
       font-weight: 600;
     }
+
+    .star-emoji {
+      color: #3b82f6;
+      transition: all 0.3s ease;
+      display: inline-block;
+      filter: drop-shadow(0 0 5px #3b82f6);
+      text-shadow: 0 0 10px #3b82f6;
+    }
+    
+    .star-emoji:hover {
+      color: #1d4ed8;
+      transform: rotate(15deg) scale(1.2);
+      filter: drop-shadow(0 0 15px #3b82f6);
+      text-shadow: 0 0 25px #3b82f6;
+    }
+
+    /* Enhanced color option transitions */
+    .color-option {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .color-option:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Phone image transitions */
+    .phone-image {
+      transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .feature-card {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+      border-color: rgba(0, 198, 255, 0.3);
+    }
+    
+    .feature-card h3 {
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
   </style>
 </head>
-<body class="bg-white text-gray-800 font-body">
+<body class="bg-black text-white font-body">
 
   <!-- Header -->
-  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+  <header class="bg-black border-b border-gray-800 sticky top-0 z-50 shadow-sm">
     <!-- Top Bar -->
-    <div class="flex justify-end px-6 py-2 text-sm text-gray-600">
+    <div class="flex justify-end px-6 py-2 text-sm text-gray-400">
       <div class="flex gap-6">
-        <span class="cursor-pointer hover:text-black transition-colors">Support</span>
-        <span class="cursor-pointer hover:text-black transition-colors">For Business ↗</span>
+        <span class="cursor-pointer hover:text-white transition-colors">Support</span>
+        <span class="cursor-pointer hover:text-white transition-colors">For Business</span>
       </div>
     </div>
 
@@ -43,233 +97,575 @@
     <div class="flex justify-between items-center px-6 py-4">
       <!-- Logo -->
       <a href="index.html" class="flex items-center">
-        <span class="text-2xl font-bold text-black">SAMSUNG</span>
+        <span class="text-2xl font-bold text-white">SAMSUNG</span>
       </a>
 
       <!-- Nav Links -->
       <nav class="hidden md:flex gap-8 text-base font-semibold">
-        <a href="#" class="hover:text-blue-600 transition-colors text-gray-800">Shop</a>
-        <a href="#" class="hover:text-blue-600 transition-colors text-gray-800">Mobile</a>
-        <a href="#" class="hover:text-blue-600 transition-colors text-gray-800">TV & AV</a>
-        <a href="#" class="hover:text-blue-600 transition-colors text-gray-800">Appliances</a>
-        <a href="#" class="hover:text-blue-600 transition-colors text-gray-800">Computing & Displays</a>
-        <a href="#" class="hover:text-blue-600 transition-colors text-gray-800">Accessories</a>
+        <a href="#" class="hover:text-blue-400 transition-colors text-gray-300">Shop</a>
+        <a href="#" class="hover:text-blue-400 transition-colors text-gray-300">Mobile</a>
+        <a href="#" class="hover:text-blue-400 transition-colors text-gray-300">TV &amp; AV</a>
+        <a href="#" class="hover:text-blue-400 transition-colors text-gray-300">Appliances</a>
+        <a href="#" class="hover:text-blue-400 transition-colors text-gray-300">Computing &amp; Displays</a>
+        <a href="#" class="hover:text-blue-400 transition-colors text-gray-300">Accessories</a>
       </nav>
 
       <!-- Icons -->
       <div class="flex items-center gap-4">
         <!-- Search Box -->
-        <div class="hidden md:flex items-center bg-gray-100 rounded-full px-4 py-2">
-          <svg class="w-4 h-4 text-gray-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="hidden md:flex items-center bg-gray-900 rounded-full px-4 py-2">
+          <svg class="w-4 h-4 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
           </svg>
-          <input type="text" placeholder="Search" class="bg-transparent outline-none text-sm w-full max-w-xs" />
+          <input type="text" placeholder="Search" class="bg-transparent outline-none text-sm w-full max-w-xs text-white" />
         </div>
 
         <!-- Cart Icon -->
         <a href="cart.html" class="relative flex items-center" title="View your cart">
-          <svg class="w-5 h-5 cursor-pointer text-gray-700 hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5 cursor-pointer text-gray-300 hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M5.4 13L6 7H3m4 6v6a2 2 0 002 2h8a2 2 0 002-2v-6" />
           </svg>
+          <span id="cartBadge" class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full h-4 w-4 items-center justify-center font-semibold hidden">0</span>
         </a>
 
         <!-- User Icon -->
         <a href="login.html" class="flex items-center" title="Login to your Samsung account">
-          <svg class="w-5 h-5 cursor-pointer text-gray-700 hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5 cursor-pointer text-gray-300 hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
           </svg>
         </a>
       </div>
     </div>
+  </header>
 
-    <!-- Sub-Header -->
-    <div class="flex justify-between items-center px-6 py-3 border-b border-gray-200">
-      <!-- Product Selection -->
-      <div class="flex items-center gap-2 cursor-pointer">
-        <span class="font-semibold text-gray-800">Galaxy S25 Ultra</span>
-        <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-        </svg>
-      </div>
-
-      <!-- Right Side -->
-      <div class="flex items-center gap-6">
-        <a href="#" class="text-gray-600 hover:text-black transition-colors">SPECS</a>
-        <a href="#" class="text-gray-600 hover:text-black transition-colors">REVIEWS</a>
-        <button class="bg-blue-600 text-white px-6 py-2 rounded font-semibold hover:bg-blue-700 transition-colors">
-          Buy now
+  <!-- Hero Section with Video Banner -->
+  <section class="relative w-full h-screen overflow-hidden">
+    <!-- Video Background -->
+    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+      <source src="https://images.samsung.com/is/content/samsung/assets/in/smartphones/galaxy-s25-ultra/videos/galaxy-s25-ultra-features-ai-overview.webm?imbypass=true" type="video/webm">
+      <!-- Fallback for browsers that don't support video -->
+      <div class="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-blue-900"></div>
+    </video>
+    
+    <!-- Overlay to ensure text visibility -->
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+    
+    <!-- Text Overlay -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+      <!-- Video Controls -->
+      <div class="absolute bottom-10 right-10">
+        <button id="videoToggle" class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-full p-3 transition-all duration-300 backdrop-blur-sm">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+          </svg>
         </button>
       </div>
     </div>
-  </header>
+  </section>
 
-  <!-- Main Content -->
-  <main class="min-h-screen bg-gray-50">
-    <div class="max-w-7xl mx-auto px-6 py-12">
-      <div class="flex flex-col items-center justify-center">
-        
-        <!-- Product Image (First Image) -->
-        <div class="w-full max-w-2xl mx-auto mb-8">
-          <img 
-            src="https://images.samsung.com/in/smartphones/galaxy-s25-ultra/images/galaxy-s25-ultra-features-kv.jpg?imbypass=true" 
-            alt="Galaxy S25 Ultra" 
-            class="w-full object-contain">
-        </div>
-
-        <!-- Product Info and Add to Cart -->
-        <div class="w-full max-w-2xl mx-auto mb-16 bg-white p-8 rounded-lg shadow-md">
-          <h1 class="text-3xl font-bold mb-2">Galaxy S25 Ultra</h1>
-          <p class="text-gray-600 mb-4">Experience the next level of smartphone innovation</p>
-          <div class="flex items-center mb-6">
-            <span class="text-2xl font-bold text-blue-600">₹ 124,999</span>
-            <span class="ml-2 text-sm text-gray-500 line-through">₹ 134,999</span>
-          </div>
-          
-          <!-- Add to Cart Button -->
-          <button id="addToCartBtn" class="bg-blue-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-blue-700 transition-colors w-full">
-            Add to Cart
-          </button>
-          
-          <!-- Login Message (Hidden by default) -->
-          <div id="loginMessage" class="hidden mt-4 p-4 bg-yellow-50 text-yellow-800 rounded-md">
-            <p class="flex items-center">
-              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-              </svg>
-              Please <a href="login.html" class="text-blue-600 font-semibold hover:underline">login</a> to use the Add to Cart feature
-            </p>
-          </div>
-        </div>
+  <!-- AI Text Content Section -->
+  <section class="py-16 bg-black">
+    <div class="max-w-5xl mx-auto px-6">
+      <!-- AI Text Content with Animation -->
+      <div class="text-center text-white opacity-0 transform translate-y-10 transition-all duration-1000 ease-out" id="aiTextContent">
+        <p class="text-xl md:text-2xl mb-6">Ring in the next era of mobile AI with an AI companion who's one step ahead of your every need. Just let natural conversation guide the way to checking off everyday tasks with ease.</p>
+        <p class="text-2xl md:text-3xl font-bold">Press, talk, done!</p>
       </div>
     </div>
-  </main>
+  </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-100 pt-16 pb-12">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-        <!-- Column 1 -->
-        <div>
-          <h4 class="font-semibold text-lg mb-4">Shop</h4>
-          <ul class="space-y-2">
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Smartphones</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Tablets</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Wearables</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">TVs</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Home Appliances</a></li>
-          </ul>
-        </div>
-        
-        <!-- Column 2 -->
-        <div>
-          <h4 class="font-semibold text-lg mb-4">Support</h4>
-          <ul class="space-y-2">
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Contact Us</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Help Center</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Service Locations</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Warranty</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Track Repair</a></li>
-          </ul>
-        </div>
-        
-        <!-- Column 3 -->
-        <div>
-          <h4 class="font-semibold text-lg mb-4">Account</h4>
-          <ul class="space-y-2">
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">My Account</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">My Orders</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Samsung Rewards</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Samsung Care+</a></li>
-          </ul>
-        </div>
-        
-        <!-- Column 4 -->
-        <div>
-          <h4 class="font-semibold text-lg mb-4">About Us</h4>
-          <ul class="space-y-2">
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Company Info</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Careers</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Newsroom</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Sustainability</a></li>
-            <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Investors</a></li>
-          </ul>
+  <!-- Video Section - Seamless Actions Across Apps -->
+  <section class="py-16 bg-black">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="relative w-full overflow-hidden rounded-2xl shadow-2xl">
+        <video class="w-full" autoplay loop muted playsinline>
+          <source src="https://images.samsung.com/is/content/samsung/assets/in/smartphones/galaxy-s25-ultra/videos/galaxy-s25-ultra-features-seamless-actions-across-apps_v3.webm?imbypass=true" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+        <button class="absolute bottom-4 right-4 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-full p-2 transition-all duration-300 backdrop-blur-sm video-pause-btn">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="text-center mt-8 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out video-text">
+        <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-300 via-blue-400 to-blue-500 inline-block text-transparent bg-clip-text">The most advanced<br>AI ProVisual Engine<sup>3</sup></h2>
+        <p class="text-gray-300 mt-4 max-w-3xl mx-auto">Our next-gen ProVisual Engine is now boosted by our powerful processor—allowing you to capture, view and edit for our best camera and editing experience yet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galaxy S25 Ultra Feature Section with Animation -->
+  <section class="galaxy-s25-ultra-section relative w-full py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-blue-900 opacity-90"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between">
+      <!-- Left Content - Text -->
+      <div class="w-full md:w-1/2 mb-12 md:mb-0 galaxy-s25-ultra-content">
+        <div class="max-w-lg">
         </div>
       </div>
       
-      <!-- Bottom Footer -->
-      <div class="pt-8 border-t border-gray-200">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <!-- Copyright -->
-          <p class="text-gray-500 text-sm mb-4 md:mb-0">&copy; 2024 Samsung Electronics Co., Ltd. All rights reserved.</p>
-          
-          <!-- Legal Links -->
-          <div class="flex flex-wrap justify-center gap-4 text-sm">
-            <a href="#" class="text-gray-500 hover:text-blue-600 transition-colors">Privacy</a>
-            <a href="#" class="text-gray-500 hover:text-blue-600 transition-colors">Terms of Use</a>
-            <a href="#" class="text-gray-500 hover:text-blue-600 transition-colors">Cookies</a>
-            <a href="#" class="text-gray-500 hover:text-blue-600 transition-colors">Accessibility</a>
+      <!-- Right Content - Phone Image -->
+      <div class="w-full md:w-1/2 flex justify-center galaxy-s25-ultra-image">
+      </div>
+    </div>
+  </section>
+
+  <!-- Processor Video Section -->
+  <section class="py-16 bg-black">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-8 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out video-text">
+        <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-300 via-blue-400 to-blue-500 inline-block text-transparent bg-clip-text">The most powerful<br>processor, customised<br>for Galaxy</h2>
+      </div>
+      <div class="relative w-full overflow-hidden rounded-2xl shadow-2xl">
+        <video class="w-full" autoplay loop muted playsinline>
+          <source src="https://images.samsung.com/in/smartphones/galaxy-s25-ultra/videos/galaxy-s25-ultra-features-performance-overview-a.webm?imbypass=true" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+        <button class="absolute bottom-4 right-4 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-full p-2 transition-all duration-300 backdrop-blur-sm video-pause-btn">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="text-center mt-8 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out video-text">
+        <!-- Text removed as requested -->
+      </div>
+    </div>
+  </section>
+  
+  <!-- One UI 7 Section -->
+  <section class="py-16 bg-black">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-8 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out video-text">
+        <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-300 via-blue-400 to-blue-500 inline-block text-transparent bg-clip-text">All new One UI 7,<br>built for AI</h2>
+      </div>
+      <div class="relative w-full overflow-hidden rounded-2xl shadow-2xl">
+        <video class="w-full" autoplay loop muted playsinline>
+          <source src="https://images.samsung.com/is/content/samsung/assets/in/smartphones/galaxy-s25-ultra/videos/galaxy-s25-ultra-features-ai-overview.webm?imbypass=true" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+        <button class="absolute bottom-4 right-4 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-full p-2 transition-all duration-300 backdrop-blur-sm video-pause-btn">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="text-center mt-8 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out video-text">
+        <!-- Text removed as requested -->
+      </div>
+    </div>
+  </section>
+
+  <!-- One UI 7 Full Image Section -->
+  <section class="w-full bg-black">
+    <img src="https://images.samsung.com/in/smartphones/galaxy-s25-ultra/images/galaxy-s25-ultra-features-one-ui-visual.jpg?imbypass=true" alt="One UI 7 Features" class="w-full h-auto">
+  </section>
+
+  <!-- One UI 7 Features Section -->
+  <section class="py-16 bg-black">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Now Bar Feature -->
+        <div class="feature-card">
+          <h3 class="text-2xl font-bold text-white mb-4">Now Bar</h3>
+          <div class="relative w-full overflow-hidden rounded-2xl shadow-xl mb-4">
+            <video class="w-full" autoplay loop muted playsinline>
+              <source src="https://images.samsung.com/in/smartphones/galaxy-s25-ultra/videos/galaxy-s25-ultra-features-one-ui-now-bar.webm?imbypass=true" type="video/webm">
+              Your browser does not support the video tag.
+            </video>
+            <button class="absolute bottom-4 right-4 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-full p-2 transition-all duration-300 backdrop-blur-sm video-pause-btn">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+              </svg>
+            </button>
           </div>
+          <p class="text-gray-300">Get direct access to your Now Brief alerts, music, timer and more from the all-new Now Bar without having to unlock your phone.</p>
         </div>
+
+        <!-- Widget Feature -->
+        <div class="feature-card">
+          <h3 class="text-2xl font-bold text-white mb-4">Widget</h3>
+          <div class="relative w-full overflow-hidden rounded-2xl shadow-xl mb-4">
+            <video class="w-full" autoplay loop muted playsinline>
+              <source src="https://images.samsung.com/in/smartphones/galaxy-s25-ultra/videos/galaxy-s25-ultra-features-one-ui-widget.webm?imbypass=true" type="video/webm">
+              Your browser does not support the video tag.
+            </video>
+            <button class="absolute bottom-4 right-4 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-full p-2 transition-all duration-300 backdrop-blur-sm video-pause-btn">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+              </svg>
+            </button>
+          </div>
+          <p class="text-gray-300">The new home screen is yours to control with highly-customizable layouts and redesigned widgets.</p>
+        </div>
+
+        <!-- Notification Feature -->
+        <div class="feature-card">
+          <h3 class="text-2xl font-bold text-white mb-4">Notification</h3>
+          <div class="relative w-full overflow-hidden rounded-2xl shadow-xl mb-4">
+            <video class="w-full" autoplay loop muted playsinline>
+              <source src="https://images.samsung.com/in/smartphones/galaxy-s25-ultra/videos/galaxy-s25-ultra-features-one-ui-notification-a.webm?imbypass=true" type="video/webm">
+              Your browser does not support the video tag.
+            </video>
+            <button class="absolute bottom-4 right-4 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-full p-2 transition-all duration-300 backdrop-blur-sm video-pause-btn">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+              </svg>
+            </button>
+          </div>
+          <p class="text-gray-300">See what's in action right now. Live notifications let you monitor on-going activities such as timers and voice recordings on the Now Bar, status bar or even at the top of your regular notification panel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 bg-gray-900">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-display font-bold text-center mb-16 text-white">Revolutionary Features</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <!-- Feature 1 -->
+        <div class="bg-black rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border border-gray-800">
+          <div class="bg-blue-600 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-white">Pro-Grade Camera</h3>
+          <p class="text-gray-400">Capture stunning details with our 200MP main camera and advanced AI processing for professional-quality photos in any lighting condition.</p>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="bg-black rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border border-gray-800">
+          <div class="bg-purple-600 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-white">All-Day Battery</h3>
+          <p class="text-gray-400">Power through your day with our intelligent 5000mAh battery that adapts to your usage patterns and supports super-fast charging.</p>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="bg-black rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border border-gray-800">
+          <div class="bg-teal-600 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-white">Dynamic AMOLED 2X</h3>
+          <p class="text-gray-400">Experience vibrant colors and deep blacks on our 6.8-inch QHD+ display with adaptive 120Hz refresh rate for ultra-smooth scrolling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section - ProVisual Engine -->
+  <section class="py-16 bg-black">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="relative w-full overflow-hidden rounded-2xl shadow-2xl">
+        <video class="w-full" autoplay loop muted playsinline>
+          <source src="https://images.samsung.com/in/smartphones/galaxy-s25-ultra/videos/galaxy-s25-ultra-features-provisual-engine.webm?imbypass=true" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+        <button class="absolute bottom-4 right-4 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-full p-2 transition-all duration-300 backdrop-blur-sm video-pause-btn">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="text-center mt-8 opacity-0 transform translate-y-10 transition-all duration-1000 ease-out video-text">
+        <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-300 via-blue-400 to-blue-500 inline-block text-transparent bg-clip-text">The most advanced<br>AI ProVisual Engine<sup>3</sup></h2>
+        <p class="text-gray-300 mt-4 max-w-3xl mx-auto">Our next-gen ProVisual Engine is now boosted by our powerful processor—allowing you to capture, view and edit for our best camera and editing experience yet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coming Soon Section -->
+  <section class="py-20 relative overflow-hidden">
+    <div class="absolute inset-0 bg-black opacity-90"></div>
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="text-center coming-soon-content opacity-0 transform translate-y-10">
+        <h2 class="text-5xl md:text-7xl font-bold mb-6 font-display bg-gradient-to-r from-teal-300 via-blue-400 to-blue-500 inline-block text-transparent bg-clip-text animate-pulse">Coming Soon</h2>
+        <p class="text-xl md:text-2xl bg-gradient-to-r from-blue-300 to-teal-200 inline-block text-transparent bg-clip-text max-w-3xl mx-auto mb-10 leading-relaxed">Experience the next evolution of Galaxy innovation. Stay tuned for groundbreaking features and technologies.</p>
+        <div class="flex justify-center space-x-4">
+          <button class="bg-gradient-to-r from-blue-500 to-teal-400 text-white px-8 py-3 rounded-full font-semibold hover:from-blue-600 hover:to-teal-500 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">Get Notified</button>
+          <button class="bg-transparent border-2 border-white text-gradient bg-gradient-to-r from-blue-300 to-teal-200 inline-block text-transparent bg-clip-text px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">Learn More</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Animation for Coming Soon section
+      document.addEventListener('DOMContentLoaded', function() {
+        const comingSoonObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('opacity-100', 'translate-y-0');
+              entry.target.classList.remove('opacity-0', 'translate-y-10');
+              comingSoonObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
+        
+        const comingSoonContent = document.querySelector('.coming-soon-content');
+        if (comingSoonContent) {
+          comingSoonContent.classList.add('transition-all', 'duration-1000', 'ease-out');
+          comingSoonObserver.observe(comingSoonContent);
+        }
+      });
+    </script>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-gray-800 mt-16">
+    <div class="max-w-7xl mx-auto px-6 py-12">
+      <!-- Main Footer Content -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        
+        <!-- Product & Service -->
+        <div>
+          <h3 class="font-bold text-white mb-4">Product &amp; Service</h3>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="#" class="hover:text-white transition-colors">Smartphones</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Tablets</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Audio Sound</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Watches</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">TVs</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Refrigerators</a></li>
+          </ul>
+        </div>
+
+        <!-- Shop -->
+        <div>
+          <h3 class="font-bold text-white mb-4">Shop</h3>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="#" class="hover:text-white transition-colors">Offers</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Store Locator</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Samsung Experience Store</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Samsung Student Advantage</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Corporate Employee Program</a></li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div>
+          <h3 class="font-bold text-white mb-4">Support</h3>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Email Us</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Community</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Service Centre</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Track Repair</a></li>
+          </ul>
+        </div>
+
+        <!-- Account -->
+        <div>
+          <h3 class="font-bold text-white mb-4">Account</h3>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="#" class="hover:text-white transition-colors">My Account</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">My Orders</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Wishlist</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Track My Order</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="border-t border-gray-800 pt-8">
+        <p class="text-sm text-gray-500 text-center">Copyright © 2024 Samsung. All rights reserved.</p>
       </div>
     </div>
   </footer>
-  <!-- Add to Cart Script -->
+
   <script>
+    // JavaScript for cart functionality and animations
     document.addEventListener('DOMContentLoaded', function() {
-      const addToCartBtn = document.getElementById('addToCartBtn');
-      const loginMessage = document.getElementById('loginMessage');
+      // Video pause button functionality - improved to ensure it works for all videos
+      const videoPauseButtons = document.querySelectorAll('.video-pause-btn');
       
-      // Check if user is logged in
-      function isUserLoggedIn() {
-        return localStorage.getItem('samsungUser') !== null;
-      }
-      
-      // Add to cart functionality
-      function addToCart() {
-        // Product details
-        const product = {
-          name: 'Galaxy S25 Ultra',
-          price: '₹ 124,999',
-          image: 'https://images.samsung.com/in/smartphones/galaxy-s25-ultra/images/galaxy-s25-ultra-features-kv.jpg?imbypass=true',
-          color: 'Titanium Black',
-          storage: '512GB',
-          quantity: 1
-        };
-        
-        // Get existing cart items or initialize empty array
-        let cartItems = JSON.parse(localStorage.getItem('samsungCartItems')) || [];
-        
-        // Check if product already exists in cart
-        const existingProductIndex = cartItems.findIndex(item => 
-          item.name === product.name && item.color === product.color && item.storage === product.storage
-        );
-        
-        if (existingProductIndex !== -1) {
-          // Increment quantity if product already exists
-          cartItems[existingProductIndex].quantity += 1;
-        } else {
-          // Add new product to cart
-          cartItems.push(product);
-        }
-        
-        // Save updated cart to localStorage
-        localStorage.setItem('samsungCartItems', JSON.stringify(cartItems));
-        
-        // Show success message
-        alert('Product added to cart successfully!');
-      }
-      
-      // Add event listener to Add to Cart button
-      if (addToCartBtn) {
-        addToCartBtn.addEventListener('click', function() {
-          if (isUserLoggedIn()) {
-            // User is logged in, add to cart
-            addToCart();
-          } else {
-            // User is not logged in, show login message
-            loginMessage.classList.remove('hidden');
+      videoPauseButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Get the closest video element to ensure we're controlling the right video
+          const video = this.closest('.relative').querySelector('video');
+          
+          if (video && video.paused) {
+            video.play();
+            this.innerHTML = `
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+              </svg>
+            `;
+          } else if (video) {
+            video.pause();
+            this.innerHTML = `
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            `;
           }
         });
+      });
+      
+      // Video text animation with smooth transitions
+      const videoTextElements = document.querySelectorAll('.video-text');
+      
+      // Create a new Intersection Observer for the video text elements
+      const videoTextObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Animate the text when it comes into view with a smoother transition
+            setTimeout(() => {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+              entry.target.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            }, 300);
+            
+            // Unobserve after animation is triggered
+            videoTextObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 }); // Trigger when 20% of the element is visible
+      
+      // Start observing the video text elements
+      videoTextElements.forEach(element => {
+        videoTextObserver.observe(element);
+        
+        // Trigger animation immediately if already in view
+        if (element.getBoundingClientRect().top < window.innerHeight) {
+          setTimeout(() => {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+            element.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+          }, 300);
+        }
+      });
+      
+      // Check if cart exists in localStorage
+      let cart = JSON.parse(localStorage.getItem('samsungCart')) || [];
+      
+      // Update cart badge
+      const cartBadge = document.getElementById('cartBadge');
+      if (cartBadge) {
+        if (cart.length > 0) {
+          cartBadge.textContent = cart.length;
+          cartBadge.classList.remove('hidden');
+        } else {
+          cartBadge.classList.add('hidden');
+        }
+      }
+
+      // Animation for Galaxy S25 Ultra section
+      const s25UltraSection = document.querySelector('.galaxy-s25-ultra-section');
+      const s25UltraContent = document.querySelector('.galaxy-s25-ultra-content');
+      const s25UltraTitle = document.querySelector('.galaxy-s25-ultra-title');
+      const s25UltraImage = document.querySelector('.galaxy-s25-ultra-image');
+
+      // Function to trigger animations
+      function triggerS25UltraAnimation() {
+        if (!s25UltraSection) return;
+        
+        s25UltraSection.classList.add('animate-in');
+        
+        // Cascade animation for content elements
+        setTimeout(() => {
+          if (s25UltraTitle) s25UltraTitle.classList.add('animate-in');
+        }, 300);
+        
+        setTimeout(() => {
+          if (s25UltraImage) s25UltraImage.classList.add('animate-in');
+        }, 500);
+      }
+
+      // Function to reset animations
+      function resetS25UltraAnimation() {
+        if (!s25UltraSection) return;
+        
+        s25UltraSection.classList.remove('animate-in');
+        if (s25UltraTitle) s25UltraTitle.classList.remove('animate-in');
+        if (s25UltraImage) s25UltraImage.classList.remove('animate-in');
+      }
+
+      // Intersection Observer for scroll-based animations
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.target === s25UltraSection) {
+            if (entry.isIntersecting) {
+              triggerS25UltraAnimation();
+            } else {
+              resetS25UltraAnimation();
+            }
+          }
+        });
+      }, { threshold: 0.2 }); // Trigger when 20% of the element is visible
+
+      // Observe the section
+      if (s25UltraSection) {
+        observer.observe(s25UltraSection);
+      }
+
+      // Trigger animation immediately if section is already in view
+      if (s25UltraSection && s25UltraSection.getBoundingClientRect().top < window.innerHeight) {
+        triggerS25UltraAnimation();
+      }
+      
+      // Video toggle functionality
+      const heroVideo = document.querySelector('video');
+      const videoToggle = document.getElementById('videoToggle');
+      const aiTextContent = document.getElementById('aiTextContent');
+      
+      if (heroVideo && videoToggle) {
+        videoToggle.addEventListener('click', function() {
+          if (heroVideo.paused) {
+            heroVideo.play();
+            videoToggle.innerHTML = `
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+              </svg>
+            `;
+          } else {
+            heroVideo.pause();
+            videoToggle.innerHTML = `
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            `;
+          }
+        });
+      }
+      
+      // Trigger text fade-up animation when scrolled into view
+      if (aiTextContent) {
+        // Create a new Intersection Observer for the AI text content
+        const textObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Animate the text when it comes into view
+              setTimeout(() => {
+                aiTextContent.style.opacity = '1';
+                aiTextContent.style.transform = 'translateY(0)';
+              }, 300);
+              
+              // Unobserve after animation is triggered
+              textObserver.unobserve(aiTextContent);
+            }
+          });
+        }, { threshold: 0.2 }); // Trigger when 20% of the element is visible
+        
+        // Start observing the text content
+        textObserver.observe(aiTextContent);
+        
+        // Trigger animation immediately if already in view
+        if (aiTextContent.getBoundingClientRect().top < window.innerHeight) {
+          setTimeout(() => {
+            aiTextContent.style.opacity = '1';
+            aiTextContent.style.transform = 'translateY(0)';
+          }, 300);
+        }
       }
     });
   </script>

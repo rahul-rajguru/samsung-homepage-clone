@@ -1,5 +1,6 @@
-// Washing Machine Section Animation Controller
+// Samsung Homepage Animation Controller
 document.addEventListener('DOMContentLoaded', function() {
+    
     // Search Functionality
     const searchInput = document.getElementById('searchInput');
     const searchDropdown = document.getElementById('searchDropdown');
@@ -49,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Section elements
     const washingMachineSection = document.querySelector('.washing-machine-section');
     const galaxyWatchSection = document.querySelector('.galaxy-watch-section');
     const galaxyFoldSection = document.querySelector('.galaxy-fold-section');
@@ -57,6 +59,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const galaxyWatchTitle = document.querySelector('.galaxy-watch-title');
     const galaxyWatchSubtitle = document.querySelector('.galaxy-watch-subtitle');
     const galaxyWatchButton = document.querySelector('.galaxy-watch-button');
+    
+    // Galaxy S25 Ultra Section Elements
+    const galaxyS25UltraSection = document.querySelector('.galaxy-s25-ultra-section');
+    const galaxyS25UltraContent = document.querySelector('.galaxy-s25-ultra-content');
+    const galaxyS25UltraImage = document.querySelector('.galaxy-s25-ultra-image');
+
     // Video pause functionality
     const video = document.getElementById('heroVideo');
     const pauseButton = document.getElementById('pauseButton');
@@ -89,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // First fade in the section
         washingMachineSection.classList.add('animate-in');
         
-        // Add a subtle zoom effect after the section appears
+        // Then add a zoom effect after a delay
         setTimeout(() => {
             washingMachineSection.classList.add('zoom-effect');
         }, 500);
@@ -102,42 +110,43 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Function to trigger galaxy watch animations
-function triggerGalaxyWatchAnimation() {
-    // First fade in the section
-    galaxyWatchSection.classList.add('animate-in');
-    
-    // Then animate each element with increasing delays for a cascade effect
-    setTimeout(() => galaxyWatchContent.classList.add('animate-in'), 400);
-    setTimeout(() => galaxyWatchTextContainer.classList.add('animate-in'), 700);
-    
-    // Animate the title text letter by letter
-    setTimeout(() => {
-        // Get the title text
-        const titleText = galaxyWatchTitle.textContent;
-        // Clear the title
-        galaxyWatchTitle.textContent = '';
+    function triggerGalaxyWatchAnimation() {
+        // First fade in the section
+        galaxyWatchSection.classList.add('animate-in');
         
-        // Create a span for each letter with animation class
-        for (let i = 0; i < titleText.length; i++) {
-            const letterSpan = document.createElement('span');
-            letterSpan.className = 'letter-animation';
-            letterSpan.textContent = titleText[i];
-            galaxyWatchTitle.appendChild(letterSpan);
+        // Then animate each element with increasing delays for a cascade effect
+        setTimeout(() => galaxyWatchContent.classList.add('animate-in'), 400);
+        setTimeout(() => galaxyWatchTextContainer.classList.add('animate-in'), 700);
+        
+        // Animate the title text letter by letter
+        setTimeout(() => {
+            // Get the title text
+            const titleText = galaxyWatchTitle.textContent;
+            // Clear the title
+            galaxyWatchTitle.textContent = '';
             
-            // Animate each letter with staggered delay - faster animation
-            setTimeout(() => {
-                letterSpan.classList.add('animate');
-            }, 70 * i); // Reduced from 100ms to 70ms for faster animation
-        }
-    }, 1000);
-    
-    // Animate the subtitle text letter by letter
-    setTimeout(() => {
-        // Get the subtitle text (Galaxy AI)
-        const subtitleText = 'Galaxy AI';
-        // Find the h3 element inside the subtitle container
-        const subtitleElement = galaxyWatchSubtitle.querySelector('h3');
-        if (subtitleElement) {
+            // Create a span for each letter with animation class
+            for (let i = 0; i < titleText.length; i++) {
+                const letterSpan = document.createElement('span');
+                letterSpan.className = 'letter-animation';
+                letterSpan.textContent = titleText[i];
+                galaxyWatchTitle.appendChild(letterSpan);
+                
+                // Animate each letter with staggered delay
+                setTimeout(() => {
+                    letterSpan.classList.add('animate');
+                }, 100 * i);
+            }
+        }, 1000);
+        
+        // Animate the subtitle text letter by letter
+        setTimeout(() => {
+            // Get the subtitle element
+            const subtitleElement = galaxyWatchSubtitle.querySelector('h3');
+            if (!subtitleElement) return;
+            
+            // Get the subtitle text
+            const subtitleText = subtitleElement.textContent;
             // Clear the subtitle
             subtitleElement.textContent = '';
             
@@ -153,205 +162,199 @@ function triggerGalaxyWatchAnimation() {
                     letterSpan.classList.add('animate');
                 }, 70 * i); // Reduced from 100ms to 70ms for faster animation
             }
-        }
-    }, 1300);
-    
-    // Animate the button with special text effect
-    setTimeout(() => {
-        // Get the button text
-        const buttonText = galaxyWatchButton.textContent.trim();
-        // Clear the button
-        galaxyWatchButton.textContent = '';
+        }, 1300);
         
-        // Create a container for the text
-        const textContainer = document.createElement('span');
-        textContainer.style.position = 'relative';
-        textContainer.style.zIndex = '2';
-        galaxyWatchButton.appendChild(textContainer);
-        
-        // Create a span for each letter with animation class
-        for (let i = 0; i < buttonText.length; i++) {
-            const letterSpan = document.createElement('span');
-            letterSpan.className = 'letter-animation';
-            letterSpan.textContent = buttonText[i];
-            letterSpan.style.transitionDelay = `${0.05 * i}s`;
-            textContainer.appendChild(letterSpan);
+        // Animate the button with special text effect
+        setTimeout(() => {
+            // Get the button text
+            const buttonText = galaxyWatchButton.textContent.trim();
+            // Clear the button
+            galaxyWatchButton.textContent = '';
             
-            // Animate each letter with staggered delay - faster animation
-            setTimeout(() => {
-                letterSpan.classList.add('animate');
-            }, 40 * i); // Reduced from 50ms to 40ms for faster animation
-        }
-        
-        // Add the animate-in class to the button for the shine effect
-        galaxyWatchButton.classList.add('animate-in');
-    }, 1800);
-}
-
-    // Function to reset galaxy watch animations
-function resetGalaxyWatchAnimation() {
-    galaxyWatchSection.classList.remove('animate-in');
-    galaxyWatchContent.classList.remove('animate-in');
-    galaxyWatchTextContainer.classList.remove('animate-in');
-    galaxyWatchButton.classList.remove('animate-in');
-    
-    // Reset the title to original text
-    const titleLetters = galaxyWatchTitle.querySelectorAll('.letter-animation');
-    if (titleLetters.length > 0) {
-        // Remove all letter spans and restore original text
-        galaxyWatchTitle.textContent = 'Galaxy Watch8';
-    } else {
-        // If no letter spans yet, just remove the animate-in class
-        galaxyWatchTitle.classList.remove('animate-in');
+            // Create a container for the text
+            const textContainer = document.createElement('span');
+            textContainer.style.position = 'relative';
+            textContainer.style.zIndex = '2';
+            galaxyWatchButton.appendChild(textContainer);
+            
+            // Create a span for each letter with animation class
+            for (let i = 0; i < buttonText.length; i++) {
+                const letterSpan = document.createElement('span');
+                letterSpan.className = 'letter-animation';
+                letterSpan.textContent = buttonText[i];
+                letterSpan.style.transitionDelay = `${0.05 * i}s`;
+                textContainer.appendChild(letterSpan);
+                
+                // Animate each letter with staggered delay - faster animation
+                setTimeout(() => {
+                    letterSpan.classList.add('animate');
+                }, 40 * i); // Reduced from 50ms to 40ms for faster animation
+            }
+            
+            // Add the animate-in class to the button for the shine effect
+            galaxyWatchButton.classList.add('animate-in');
+        }, 1800);
     }
-    
-    // Reset the subtitle to original text
-    const subtitleElement = galaxyWatchSubtitle.querySelector('h3');
-    if (subtitleElement) {
-        const subtitleLetters = subtitleElement.querySelectorAll('.letter-animation');
-        if (subtitleLetters.length > 0) {
+
+    // Function to reset Galaxy Watch animations
+    function resetGalaxyWatchAnimation() {
+        galaxyWatchSection.classList.remove('animate-in');
+        galaxyWatchContent.classList.remove('animate-in');
+        galaxyWatchTextContainer.classList.remove('animate-in');
+        galaxyWatchButton.classList.remove('animate-in');
+        
+        // Reset the title to original text
+        const titleLetters = galaxyWatchTitle.querySelectorAll('.letter-animation');
+        if (titleLetters.length > 0) {
             // Remove all letter spans and restore original text
-            subtitleElement.textContent = 'Galaxy AI';
+            galaxyWatchTitle.textContent = 'Galaxy Watch8';
         } else {
             // If no letter spans yet, just remove the animate-in class
-            galaxyWatchSubtitle.classList.remove('animate-in');
+            galaxyWatchTitle.classList.remove('animate-in');
+        }
+        
+        // Reset the subtitle to original text
+        const subtitleElement = galaxyWatchSubtitle.querySelector('h3');
+        if (subtitleElement) {
+            const subtitleLetters = subtitleElement.querySelectorAll('.letter-animation');
+            if (subtitleLetters.length > 0) {
+                // Remove all letter spans and restore original text
+                subtitleElement.textContent = 'Galaxy AI';
+            } else {
+                // If no letter spans yet, just remove the animate-in class
+                galaxyWatchSubtitle.classList.remove('animate-in');
+            }
+        }
+        
+        // Reset the button to original text
+        const buttonLetters = galaxyWatchButton.querySelectorAll('.letter-animation');
+        if (buttonLetters.length > 0) {
+            // Remove all letter spans and restore original text
+            galaxyWatchButton.textContent = 'Experience live demo';
         }
     }
-    
-    // Reset the button to original text
-    const buttonLetters = galaxyWatchButton.querySelectorAll('.letter-animation');
-    if (buttonLetters.length > 0) {
-        // Remove all letter spans and restore original text
-        galaxyWatchButton.textContent = 'Experience live demo';
+
+    // Function to trigger Galaxy S25 Ultra animations
+    function triggerGalaxyS25UltraAnimation() {
+        // First fade in the section
+        galaxyS25UltraSection.classList.add('animate-in');
+        
+        // Then animate each element with a cascade effect
+        setTimeout(() => {
+            galaxyS25UltraContent.style.opacity = '1';
+            galaxyS25UltraContent.style.transform = 'translateY(0)';
+        }, 300);
+        
+        setTimeout(() => {
+            galaxyS25UltraImage.style.opacity = '1';
+            galaxyS25UltraImage.style.transform = 'translateX(0)';
+        }, 600);
     }
-}
+
+    // Function to reset Galaxy S25 Ultra animations
+    function resetGalaxyS25UltraAnimation() {
+        galaxyS25UltraSection.classList.remove('animate-in');
+        galaxyS25UltraContent.style.opacity = '0';
+        galaxyS25UltraContent.style.transform = 'translateY(10px)';
+        galaxyS25UltraImage.style.opacity = '0';
+        galaxyS25UltraImage.style.transform = 'translateX(10px)';
+    }
 
     // Function to trigger galaxy fold animations with staggered product animations
     function triggerGalaxyFoldAnimation() {
+        // First fade in the section
         galaxyFoldSection.classList.add('animate-in');
-        
-        // Get all product items in the fold section
-        const productItems = galaxyFoldSection.querySelectorAll('.text-center');
-        
-        // Animate each product with a delay
-        productItems.forEach((item, index) => {
-            setTimeout(() => {
-                item.classList.add('animate-in');
-            }, 300 * index); // 300ms delay between each product
-        });
     }
 
     // Function to reset galaxy fold animations
     function resetGalaxyFoldAnimation() {
         galaxyFoldSection.classList.remove('animate-in');
-        
-        // Reset all product items
-        const productItems = galaxyFoldSection.querySelectorAll('.text-center');
-        productItems.forEach(item => {
-            item.classList.remove('animate-in');
-        });
     }
 
-
-
-    // Intersection Observer for smooth animations
-    const observer = new IntersectionObserver((entries) => {
+    // Intersection Observer for section animations
+    const sections = document.querySelectorAll('.section-animate');
+    
+    const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
+            // When section becomes visible
             if (entry.isIntersecting) {
-                if (entry.target.classList.contains('washing-machine-section')) {
+                const section = entry.target;
+                
+                // Trigger the appropriate animation based on section class
+                if (section.classList.contains('galaxy-s-section')) {
+                    triggerGalaxyS25UltraAnimation();
+                } else if (section.classList.contains('washing-machine-section')) {
                     triggerWashingMachineAnimation();
-                } else if (entry.target.classList.contains('galaxy-watch-section')) {
+                } else if (section.classList.contains('galaxy-watch-section')) {
                     triggerGalaxyWatchAnimation();
-                } else if (entry.target.classList.contains('galaxy-fold-section')) {
+                } else if (section.classList.contains('galaxy-fold-section')) {
                     triggerGalaxyFoldAnimation();
                 }
-            } else {
-                // Reset animations when scrolling away for future re-animation
-                if (entry.target.classList.contains('washing-machine-section')) {
-                    resetWashingMachineAnimation();
-                } else if (entry.target.classList.contains('galaxy-watch-section')) {
-                    resetGalaxyWatchAnimation();
-                } else if (entry.target.classList.contains('galaxy-fold-section')) {
-                    resetGalaxyFoldAnimation();
-                }
+                
+                // Stop observing after animation is triggered
+                sectionObserver.unobserve(section);
+                
+                // Re-observe after a delay to reset animations when scrolled away
+                setTimeout(() => {
+                    const resetObserver = new IntersectionObserver((resetEntries) => {
+                        resetEntries.forEach(resetEntry => {
+                            if (!resetEntry.isIntersecting) {
+                                // Reset the appropriate animation based on section class
+                                if (section.classList.contains('galaxy-s-section')) {
+                                    resetGalaxyS25UltraAnimation();
+                                } else if (section.classList.contains('washing-machine-section')) {
+                                    resetWashingMachineAnimation();
+                                } else if (section.classList.contains('galaxy-watch-section')) {
+                                    resetGalaxyWatchAnimation();
+                                } else if (section.classList.contains('galaxy-fold-section')) {
+                                    resetGalaxyFoldAnimation();
+                                }
+                                
+                                // Stop observing after reset
+                                resetObserver.unobserve(section);
+                                
+                                // Re-observe with the main observer
+                                setTimeout(() => {
+                                    sectionObserver.observe(section);
+                                }, 500);
+                            }
+                        });
+                    }, { threshold: 0.2 });
+                    
+                    resetObserver.observe(section);
+                }, 1000);
             }
         });
-    }, {
-        threshold: 0.1, // Trigger when 10% of element is visible
-        rootMargin: '-50px 0px -50px 0px' // Add margin to trigger at better scroll position
-    });
-
-    // Observe all sections
-    if (washingMachineSection) {
-        observer.observe(washingMachineSection);
-    }
-    if (galaxyWatchSection) {
-        observer.observe(galaxyWatchSection);
-    }
-    if (galaxyFoldSection) {
-        observer.observe(galaxyFoldSection);
-    }
-
-
-    // Shop dropdown menu animations
-    const shopButton = document.querySelector('.shop-button');
-    const shopDropdown = document.querySelector('.shop-dropdown');
+    }, { threshold: 0.5 });
     
-    if (shopButton && shopDropdown) {
-        // Add staggered animation for dropdown items
-        const dropdownItems = shopDropdown.querySelectorAll('a, h3');
-        dropdownItems.forEach((item, index) => {
-            // Don't set initial opacity to 0, just set the transition
-            item.style.transform = 'translateY(10px)';
-            item.style.transition = `opacity 0.3s ease ${0.05 * index}s, transform 0.3s ease ${0.05 * index}s`;
-        });
-
-        // Create a MutationObserver to watch for visibility changes
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (mutation.attributeName === 'class') {
-                    const isVisible = !shopDropdown.classList.contains('invisible');
-                    if (isVisible) {
-                        // When dropdown becomes visible, animate items in
-                        dropdownItems.forEach((item) => {
-                            setTimeout(() => {
-                                item.style.opacity = '1';
-                                item.style.transform = 'translateY(0)';
-                            }, 50);
-                        });
-                    } else {
-                        // Reset when hidden - only reset transform, not opacity
-                        dropdownItems.forEach((item) => {
-                            item.style.transform = 'translateY(10px)';
-                        });
-                    }
-                }
-            });
-        });
-
-        // Start observing the dropdown for class changes
-        observer.observe(shopDropdown, { attributes: true });
-    }
-
-    // Enhanced smooth scroll for navigation links
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
+    // Start observing all sections
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
+    
+    // Shop dropdown enhancement
+    const shopLinks = document.querySelectorAll('.shop-link');
+    shopLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            if (this.getAttribute('href') === '#') {
-                e.preventDefault();
-                return;
-            }
+            e.preventDefault();
+            const dropdown = this.nextElementSibling;
             
-            const targetId = this.getAttribute('href');
-            if (targetId && targetId.startsWith('#')) {
-                e.preventDefault();
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+            // Toggle active class
+            this.classList.toggle('active');
+            
+            // Toggle dropdown visibility with animation
+            if (dropdown.classList.contains('hidden')) {
+                dropdown.classList.remove('hidden');
+                setTimeout(() => {
+                    dropdown.classList.remove('opacity-0', 'translate-y-1');
+                    dropdown.classList.add('opacity-100', 'translate-y-0');
+                }, 10);
+            } else {
+                dropdown.classList.remove('opacity-100', 'translate-y-0');
+                dropdown.classList.add('opacity-0', 'translate-y-1');
+                setTimeout(() => {
+                    dropdown.classList.add('hidden');
+                }, 300);
             }
         });
     });
@@ -389,70 +392,58 @@ function resetGalaxyWatchAnimation() {
     // Initialize cart badge
     updateCartBadge();
     
-    // Add click event to cart icon
+    // Prevent default action for cart link if it's just a placeholder
     if (cartLink) {
         cartLink.addEventListener('click', function(e) {
-            // No need to prevent default, let it navigate to cart.html
-            // We'll just update the badge before navigation
-            updateCartBadge();
+            // If there are no items, prevent navigation and show a message
+            if (cartItems.length === 0) {
+                e.preventDefault();
+                alert('Your cart is empty. Add some products first!');
+            }
         });
     }
     
-    // Function to check if user is logged in
-    function isUserLoggedIn() {
-        const userData = localStorage.getItem('samsungUser');
-        return !!userData; // Returns true if userData exists, false otherwise
-    }
-
     // Add to cart functionality for buy buttons
-    const buyButtons = document.querySelectorAll('button:not(.galaxy-watch-button):not(.galaxy-fold-button)');
+    const buyButtons = document.querySelectorAll('.buy-button');
     buyButtons.forEach(button => {
-        if (button.textContent.toLowerCase().includes('buy')) {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Check if user is logged in
-                if (!isUserLoggedIn()) {
-                    // Show login message instead of redirecting
-                    const loginMessage = document.createElement('div');
-                    loginMessage.className = 'fixed top-20 right-5 bg-yellow-100 text-yellow-800 px-4 py-2 rounded-lg shadow-lg z-50 transform transition-all duration-500';
-                    loginMessage.innerHTML = 'Please <a href="login.html" class="text-blue-600 font-semibold hover:underline">login</a> to use the Add to Cart feature';
-                    document.body.appendChild(loginMessage);
-                    
-                    // Remove the message after 3 seconds
-                    setTimeout(() => {
-                        loginMessage.classList.add('opacity-0');
-                        setTimeout(() => {
-                            loginMessage.remove();
-                        }, 500);
-                    }, 3000);
-                    
-                    return;
-                }
-                
-                // Get product info from the page
-                const productName = document.querySelector('h1, .font-display')?.textContent || 'Samsung Product';
-                const productPrice = document.querySelector('.text-gray-800.font-medium')?.textContent || '₹ 0';
-                
-                // Create a product object
-                const product = {
-                    id: Date.now(),
-                    name: productName,
-                    price: productPrice,
-                    quantity: 1
-                };
-                
-                // Add to cart
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get product info from data attributes
+            const productId = this.getAttribute('data-product-id');
+            const productName = this.getAttribute('data-product-name');
+            const productPrice = this.getAttribute('data-product-price');
+            const productImage = this.getAttribute('data-product-image');
+            
+            // Create product object
+            const product = {
+                id: productId,
+                name: productName,
+                price: productPrice,
+                image: productImage,
+                quantity: 1
+            };
+            
+            // Check if product already exists in cart
+            const existingProductIndex = cartItems.findIndex(item => item.id === productId);
+            
+            if (existingProductIndex > -1) {
+                // Increment quantity if product already in cart
+                cartItems[existingProductIndex].quantity += 1;
+            } else {
+                // Add new product to cart
                 cartItems.push(product);
-                localStorage.setItem('samsungCartItems', JSON.stringify(cartItems));
-                
-                // Update cart badge
-                updateCartBadge();
-                
-                // Show confirmation
-                alert(`Added ${productName} to your cart!`);
-            });
-        }
+            }
+            
+            // Save updated cart to localStorage
+            localStorage.setItem('samsungCartItems', JSON.stringify(cartItems));
+            
+            // Update cart badge
+            updateCartBadge();
+            
+            // Show success message
+            alert(`${productName} added to your cart!`);
+        });
     });
 
     // Add click ripple effect to all buttons

@@ -105,10 +105,19 @@
           <span id="cartBadge" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 items-center justify-center font-semibold hidden">0</span>
         </div>
 
-        <!-- User Icon -->
-        <svg class="w-5 h-5 cursor-pointer text-gray-700 hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-        </svg>
+        <!-- User Icon with Login/Logout Links -->
+        <div class="relative">
+          <!-- Login Link (shown when not logged in) -->
+          <a href="login.html" id="loginLink" class="flex items-center" title="Login to your Samsung account">
+            <svg class="w-5 h-5 cursor-pointer text-gray-700 hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+          </a>
+          <!-- Logout Button (hidden by default, shown when logged in) -->
+          <button id="logoutBtn" class="hidden text-sm text-gray-700 hover:text-blue-600 transition-colors font-medium" title="Logout from your Samsung account">
+            Logout
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -494,7 +503,7 @@
 
        // Function to check if user is logged in
        function isUserLoggedIn() {
-         return localStorage.getItem('currentUser') !== null;
+         return localStorage.getItem('samsungUser') !== null;
        }
 
        // Add to cart functionality
@@ -849,5 +858,88 @@
      </div>
    </footer>
 
+  <!-- Authentication Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if user is logged in
+      const userData = localStorage.getItem('samsungUser');
+      const loginLink = document.getElementById('loginLink');
+      const logoutBtn = document.getElementById('logoutBtn');
+      
+      // If user is logged in
+      if (userData) {
+        const user = JSON.parse(userData);
+        
+        // Hide login link and show logout button
+        if (loginLink) loginLink.classList.add('hidden');
+        if (logoutBtn) logoutBtn.classList.remove('hidden');
+        
+        // Show welcome popup if not shown before
+        if (!sessionStorage.getItem('welcomeShown')) {
+          const welcomePopup = document.createElement('div');
+          welcomePopup.className = 'fixed top-20 right-5 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg z-50 transform transition-all duration-500 opacity-0 translate-y-2';
+          welcomePopup.innerHTML = `Welcome back, ${user.name || 'Samsung User'}!`;
+          document.body.appendChild(welcomePopup);
+          
+          // Animate in
+          setTimeout(() => {
+            welcomePopup.classList.remove('opacity-0', 'translate-y-2');
+            welcomePopup.classList.add('opacity-100', 'translate-y-0');
+          }, 100);
+          
+          // Animate out and remove after 3 seconds
+          setTimeout(() => {
+            welcomePopup.classList.add('opacity-0', 'translate-y-2');
+            setTimeout(() => {
+              welcomePopup.remove();
+            }, 500);
+          }, 3000);
+          
+          sessionStorage.setItem('welcomeShown', 'true');
+        }
+      } else {
+        // If not logged in, show login link and hide logout button
+        if (loginLink) loginLink.classList.remove('hidden');
+        if (logoutBtn) logoutBtn.classList.add('hidden');
+      }
+      
+      // Add logout functionality
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', function() {
+          // Remove user data from localStorage
+          localStorage.removeItem('samsungUser');
+          
+          // Show logout notification
+          const logoutPopup = document.createElement('div');
+          logoutPopup.className = 'fixed top-20 right-5 bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg z-50 transform transition-all duration-500 opacity-0 translate-y-2';
+          logoutPopup.innerHTML = 'You have been successfully logged out!';
+          document.body.appendChild(logoutPopup);
+          
+          // Animate in
+          setTimeout(() => {
+            logoutPopup.classList.remove('opacity-0', 'translate-y-2');
+            logoutPopup.classList.add('opacity-100', 'translate-y-0');
+          }, 100);
+          
+          // Animate out and remove after 3 seconds
+          setTimeout(() => {
+            logoutPopup.classList.add('opacity-0', 'translate-y-2');
+            setTimeout(() => {
+              logoutPopup.remove();
+            }, 500);
+          }, 3000);
+          
+          // Redirect to home page after logout
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 1500);
+          
+          // Update UI
+          loginLink.classList.remove('hidden');
+          logoutBtn.classList.add('hidden');
+        });
+      }
+    });
+  </script>
 </body>
 </html>
